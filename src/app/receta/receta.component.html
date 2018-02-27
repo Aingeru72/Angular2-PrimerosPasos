@@ -12,10 +12,12 @@
             <img *ngIf="!isGlutenFree" src="assets/img/gluten_icon.png" alt="contiene gluten" class="icono-gluten">
           </p>
           <section class="ingredientes">
-            <h4>Ingredientes
-              <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" (click)="showIngredientes()"></span>
+            <h4><span class="badge">{{ingredientes.length}}</span> Ingredientes
+              <span *ngIf="mostrarIngredientes" class="glyphicon glyphicon-triangle-top" aria-hidden="true" (click)="showIngredientes()"></span>
+              <span *ngIf="!mostrarIngredientes" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" (click)="showIngredientes()"></span>
             </h4>
-            <ul>
+            <!-- TODO: mostrar/ocultar lista con animación slideDown/sliceUp de jQuery -->
+            <ul *ngIf="mostrarIngredientes">
               <li *ngFor="let ingrediente of ingredientes">{{ingrediente}}</li>
             </ul>
           </section>

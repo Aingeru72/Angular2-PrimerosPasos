@@ -26,7 +26,7 @@ span.label {
 
 .ingredientes {
 
-  .glyphicon-triangle-bottom {
+  .glyphicon-triangle-bottom, .glyphicon-triangle-top {
     float: right;
     margin-right: 5px;
   }
@@ -37,9 +37,5 @@ span.label {
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     padding: 5px 0;
-  }
-
-  ul {
-    display: none;
   }
 }
