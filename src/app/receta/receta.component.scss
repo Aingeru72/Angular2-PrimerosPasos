@@ -25,11 +25,21 @@ span.label {
 }
 
 .ingredientes {
+
+  .glyphicon-triangle-bottom {
+    float: right;
+    margin-right: 5px;
+  }
+
   h4 {
     text-align: center;
     font-size: 1.2em;
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
     padding: 5px 0;
+  }
+
+  ul {
+    display: none;
   }
 }
