@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{foto}}" alt="tortilla de patata">
+        <div class="caption">
+          <h3>{{nombre}}</h3>
+          <p>{{descripcion | slice: 0:50}}...</p>
+          <p>
+            <span class="cocinero">{{cocinero}}</span>
+            <span class="label label-primary" (click)="plusLike()" >Likes {{likes}}</span>
+            <img *ngIf="isGlutenFree" src="assets/img/gluten_free_icon.png" alt="no tiene gluten" class="icono-gluten">
+            <img *ngIf="!isGlutenFree" src="assets/img/gluten_icon.png" alt="contiene gluten" class="icono-gluten">
+          </p>
+          <section class="ingredientes">
+            <h4>Ingredientes</h4>
+            <ul>
+              <li *ngFor="let ingrediente of ingredientes">{{ingrediente}}</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
