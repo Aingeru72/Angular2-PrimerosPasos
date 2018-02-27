@@ -1,0 +1,11 @@
+// imports
+@import '../styles';
+
+body>div.container {
+    margin-top: 60px;
+}
+
+h1 {
+    color: $color-primary;
+    text-align: center;
+}
