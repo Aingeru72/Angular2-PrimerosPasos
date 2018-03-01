@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 import { Page404Component } from './page404/page404.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { Page404Component } from './page404/page404.component';
     HomeComponent,
     RecetaComponent,
     PropiedadesComponent,
+    UsuarioComponent,
     Page404Component
   ],
   imports: [

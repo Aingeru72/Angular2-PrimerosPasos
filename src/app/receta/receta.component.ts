@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Receta } from "../model/receta";
+
 @Component({
   selector: 'app-receta',
   templateUrl: './receta.component.html',
@@ -7,27 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetaComponent implements OnInit {
 
-  // atributos
-  nombre: string;
-  descripcion: string;
-  foto: string;
-  likes: number;
-  isGlutenFree: boolean;
-  cocinero: string;
-  ingredientes: string[];
+  receta: Receta;
   // variables del menú desplegable de ingredientes
   mostrarIngredientes: boolean;
-  glyphicon: string;
+  glyphicon: string
 
   constructor() {
     console.log('RecetaComponent Constructor');
-    this.nombre = 'Bokata Kalamares';
-    this.descripcion = 'Bocata en pan de chapata con calamares fritos ali-oli.';
-    this.foto = 'http://www.recetasderechupete.com/wp-content/uploads/2017/05/Bocata-de-calamares-a-la-madrile%C3%B1a-525x360.jpg';
-    this.likes = 27;
-    this.isGlutenFree = false;
-    this.cocinero = 'Karlos Argiñano';
-    this.ingredientes = ['Calamares', 'Pan', 'Salsa ali-oli', 'Limón'];
+
+    this.receta = new Receta('Marmitako', 'Karlos Argiñano');
+    this.receta.addIngrediente('Patatas');
+    this.receta.addIngrediente('Bonito');
+    this.receta.addIngrediente('Pimiento choricero');
+    this.receta.addIngrediente('Pimiento verde');
+    this.receta.addIngrediente('Aceite');
+
     // menú de ingredientes oculto y el icono 'down' por defecto
     this.mostrarIngredientes = false;
     this.glyphicon = 'glyphicon-chevron-down';
@@ -37,8 +33,9 @@ export class RecetaComponent implements OnInit {
     console.log('RecetaComponent ngOnInit');
   }
 
-  plusLike() {
-    this.likes++;
+  incrLike() {
+    console.log('incrLike()')
+    this.receta.likes++;
   }
 
   showIngredientes() {

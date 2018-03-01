@@ -1,23 +1,23 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="{{foto}}" alt="tortilla de patata">
+        <img src="{{receta.foto}}" alt="{{receta.nombre}}">
         <div class="caption">
-          <h3>{{nombre}}</h3>
-          <p>{{descripcion | slice: 0:50}}...</p>
+          <h3>{{receta.nombre}}</h3>
+          <p>{{receta.descripcion | slice: 0:50}}...</p>
           <p>
-            <span class="cocinero">{{cocinero}}</span>
-            <span class="label label-primary" (click)="plusLike()" >Likes {{likes}}</span>
+            <span class="cocinero">{{receta.cocinero}}</span>
+            <span class="label label-primary" (click)="incrLike()" >Likes {{receta.likes}}</span>
             <img *ngIf="isGlutenFree" src="assets/img/gluten_free_icon.png" alt="no tiene gluten" class="icono-gluten">
             <img *ngIf="!isGlutenFree" src="assets/img/gluten_icon.png" alt="contiene gluten" class="icono-gluten">
           </p>
           <section class="ingredientes">
-            <h4 (click)="showIngredientes()"><span class="badge">{{ingredientes.length}}</span> Ingredientes
+            <h4 (click)="showIngredientes()"><span class="badge">{{receta.ingredientes.length}}</span> Ingredientes
               <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>
             </h4>
             <!-- TODO: mostrar/ocultar lista con animación slideDown/sliceUp de jQuery -->
             <ul *ngIf="mostrarIngredientes">
-              <li *ngFor="let ingrediente of ingredientes">{{ingrediente}}</li>
+              <li *ngFor="let ingrediente of receta.ingredientes">{{ingrediente}}</li>
             </ul>
           </section>
         </div>
