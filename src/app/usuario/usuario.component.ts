@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Usuario } from "../model/usuario";
+import { Usuario } from '../model/usuario';
 
 @Component({
   selector: 'app-usuario',
@@ -12,8 +12,8 @@ export class UsuarioComponent implements OnInit {
   usuario: Usuario;
 
   constructor() {
-    console.log('UsuarioComponent constructor')
-    this.usuario = new Usuario('Aingeru');
+    console.log('UsuarioComponent constructor');
+    this.usuario = new Usuario(Math.floor(Math.random() * 100) + 1, 'Aingeru', 'Sanchez');
   }
 
   ngOnInit() {

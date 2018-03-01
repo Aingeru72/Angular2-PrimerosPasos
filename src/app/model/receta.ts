@@ -10,22 +10,26 @@ export class Receta {
     cocinero: string;
     ingredientes: string[];
 
-    constructor( 
-        nombre: string, 
-        cocinero: string = 'Anónimo' // valor por defecto, si se crea sin este atributo o es 'undefined'
+    constructor(
+        nombre: string,
+        descripcion: string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus quia soluta',
+        foto: string = 'assets/img/receta_default.jpg',
+        likes: number = 0,
+        isGlutenFree: boolean = false,
+        cocinero: string = 'Anónimo', // valor por defecto, si se crea sin este atributo o es 'undefined'
     ) {
 
         console.log('Receta constructor');
         this.nombre = nombre;
-        this.descripcion = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus quia soluta, adipisci nulla eos odio neque, pariatur vero corrupti aspernatur perferendis suscipit eum sint deleniti in aliquam molestiae eligendi!';
-        this.foto = 'assets/img/receta_default.jpg';
-        this.likes = 0;
+        this.descripcion = descripcion;
+        this.foto = foto;
+        this.likes = likes;
         this.isGlutenFree = false;
         this.cocinero = cocinero;
         this.ingredientes = [];
     }
 
-    addIngrediente( ingrediente : string ) {
+    addIngrediente( ingrediente: string ) {
         this.ingredientes.push(ingrediente);
     }
 

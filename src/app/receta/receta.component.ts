@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Receta } from "../model/receta";
+import { Receta } from '../model/receta';
 
 @Component({
   selector: 'app-receta',
@@ -12,12 +12,12 @@ export class RecetaComponent implements OnInit {
   receta: Receta;
   // variables del menú desplegable de ingredientes
   mostrarIngredientes: boolean;
-  glyphicon: string
+  glyphicon: string;
 
   constructor() {
     console.log('RecetaComponent Constructor');
 
-    this.receta = new Receta('Marmitako', 'Karlos Argiñano');
+    this.receta = new Receta('Marmitako', null, 'https://www.rebanando.com/uploads/media/marmitako.jpg', null, null, 'Karlos Argiñano');
     this.receta.addIngrediente('Patatas');
     this.receta.addIngrediente('Bonito');
     this.receta.addIngrediente('Pimiento choricero');
@@ -34,7 +34,7 @@ export class RecetaComponent implements OnInit {
   }
 
   incrLike() {
-    console.log('incrLike()')
+    console.log('incrLike()');
     this.receta.likes++;
   }
 

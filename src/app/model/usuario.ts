@@ -7,17 +7,28 @@ export class Usuario {
     apellido: string;
     email: string;
     avatar: string;
-    sexo: string;   // ENUM [masculino, femenino, indeterminado]
+    // ENUM [masculino, femenino, indeterminado]
+    /* enum sexo: {
+        M = 'Masculino',
+        F = 'Femenino',
+        I = 'Indefinido'
+    } */
 
-    constructor( nombre: string ) {
+    constructor(id: number = -1,
+                nombre: string,     // sin valor por defecto, dado que es requerido
+                apellido: string = '',
+                email: string = '' + nombre.toLowerCase() + '.' + apellido.toLocaleLowerCase() + id + '@iparcheff.com',
+                avatar: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLGb0leUMKbbkBePbNsPneaKzGnYdtiO2-mm0_bcnxQsu6zLiK',
+                // sexo: string = 'I'
+            ) {
 
         console.log('Usuario constructor');
-        this.id = -1;
-        this.nombre = nombre; // required
-        this.apellido: '';
-        this.email: '' + this.nombre + this.apellido + '@iparcheff.com';
-        this.avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLGb0leUMKbbkBePbNsPneaKzGnYdtiO2-mm0_bcnxQsu6zLiK';
-        this.sexo: 'I';
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.avatar = avatar;
+        // this.sexo = sexo;
     }
 
 }
