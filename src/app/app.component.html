@@ -1,6 +1,5 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -8,28 +7,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">{{title}}</a>
+      <a class="navbar-brand" [routerLink]="''" routerLinkActive="active">{{title}}</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-      </ul>
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active">
+                <a [routerLink]="['receta']">Receta</a>
+            </li>  
+            <li routerLinkActive="active">
+                <a [routerLink]="['propiedades']">Propiedades</a>
+            </li>  
+          </ul>
     </div><!--/.nav-collapse -->
-  </div>
 </nav>
 
 <!-- Begin page content -->
 <div class="container">
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1>{{title}}</h1>
-      
-      <!-- Componente de Receta -->
-      <app-receta></app-receta>
+  
+  <router-outlet></router-outlet>
 
-    </div>
-  </div>
 </div>
 
 <footer class="footer">
