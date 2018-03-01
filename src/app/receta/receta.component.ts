@@ -16,7 +16,7 @@ export class RecetaComponent implements OnInit {
   cocinero: string;
   ingredientes: string[];
   // variables del menú desplegable de ingredientes
-  mostrarIngredientes: boolean = false;
+  mostrarIngredientes: boolean;
   glyphicon: string;
 
   constructor() {
