@@ -15,7 +15,9 @@ export class RecetaComponent implements OnInit {
   isGlutenFree: boolean;
   cocinero: string;
   ingredientes: string[];
+  // variables del menú desplegable de ingredientes
   mostrarIngredientes: boolean;
+  glyphicon: string;
 
   constructor() {
     console.log('RecetaComponent Constructor');
@@ -26,7 +28,9 @@ export class RecetaComponent implements OnInit {
     this.isGlutenFree = false;
     this.cocinero = 'Karlos Argiñano';
     this.ingredientes = ['Calamares', 'Pan', 'Salsa ali-oli', 'Limón'];
+    // menú de ingredientes oculto y el icono 'down' por defecto
     this.mostrarIngredientes = false;
+    this.glyphicon = 'glyphicon-chevron-down';
    }
 
   ngOnInit() {
@@ -38,7 +42,9 @@ export class RecetaComponent implements OnInit {
   }
 
   showIngredientes() {
+    console.log('click showIngredientes()');
     this.mostrarIngredientes = !this.mostrarIngredientes;
+    this.glyphicon = (this.mostrarIngredientes) ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down';
   }
 
 }
