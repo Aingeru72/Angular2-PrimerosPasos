@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor='let coche of stock' class="catalogo">
+    <a (click)='seleccionar($event, coche)'>
+      <p>{{coche.marca}} {{coche.modelo}}</p>
+    </a>
+  </li>
+</ul>

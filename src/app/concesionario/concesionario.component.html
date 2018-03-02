@@ -1,0 +1,25 @@
+<h1>Concesionario iCartek</h1>
+<p>Ejemplo de un componente Padre <b>Concesionario</b> e Hijo <b>Coche</b> .</p>
+<p>Aprender a mandar parametros entre ellos mediante <code>@input</code> y <code>@output</code>.</p>
+
+<div class="row">
+  <div class="panel panel-primary col-sm-3">
+    <div class="panel-heading">
+      <h3 class="panel-title">Catálogo</h3>
+    </div >
+    <div class="panel-body">
+        <app-catalogo [stock]='stock' (eventoEmitido)='recibirCoche($event)'></app-catalogo>
+    </div>
+  </div>
+
+  <div class="panel panel-primary col-sm-9">
+    <div class="panel-heading">
+      <h3 class="panel-title">Comparar coches</h3>
+    </div>
+    <div class="panel-body">
+        <!-- Llamada al componente hijo: coche -->  
+        <app-coche [coche]='coche1'></app-coche>
+        <app-coche [coche]='coche2'></app-coche>
+    </div>
+  </div>
+</div>

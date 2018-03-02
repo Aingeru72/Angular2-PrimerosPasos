@@ -1,0 +1,15 @@
+
+<div class="col-sm-6 col-md-4" (click)='seleccionar($event)'>
+  <div class="thumbnail">
+    <img src="{{coche.imagen}}" alt="{{coche.modelo}} {{coche.modelo}}">
+    <div class="caption">
+      <h4>{{coche.marca}} {{coche.modelo}} <span *ngIf="coche.version != undefined"> {{coche.version}}</span></h4>
+      <ul>
+        <li><b>Puertas: </b>{{coche.puertas}}</li>
+        <li><b>Caballos: </b>{{coche.caballos}}</li>
+        <li><b>Consumo: </b>{{coche.consumo}}</li>
+        <li><b>Tipo: </b>{{coche.tipo}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

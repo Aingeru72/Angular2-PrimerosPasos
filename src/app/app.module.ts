@@ -10,6 +10,9 @@ import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { Page404Component } from './page404/page404.component';
+import { ConcesionarioComponent } from './concesionario/concesionario.component';
+import { CocheComponent } from './concesionario/coche/coche.component';
+import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { Page404Component } from './page404/page404.component';
     RecetaComponent,
     PropiedadesComponent,
     UsuarioComponent,
-    Page404Component
+    Page404Component,
+    ConcesionarioComponent,
+    CocheComponent,
+    CatalogoComponent
   ],
   imports: [
     BrowserModule,
