@@ -1,4 +1,6 @@
 /* Modelo de clase USUARIO para encapsular sus atributos */
+import { Sexo } from '../model/sexo';
+
 export class Usuario {
 
     // atributos
@@ -8,18 +10,14 @@ export class Usuario {
     email: string;
     avatar: string;
     // ENUM [masculino, femenino, indeterminado]
-    /* enum sexo: {
-        M = 'Masculino',
-        F = 'Femenino',
-        I = 'Indefinido'
-    } */
+    sexo: Sexo;
 
     constructor(id: number = -1,
                 nombre: string,     // sin valor por defecto, dado que es requerido
                 apellido: string = '',
-                email: string = '' + nombre.toLowerCase() + '.' + apellido.toLocaleLowerCase() + id + '@iparcheff.com',
+                email: string = '' + nombre.toLowerCase() + '.' + apellido.toLowerCase() + id + '@iparcheff.com',
                 avatar: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLGb0leUMKbbkBePbNsPneaKzGnYdtiO2-mm0_bcnxQsu6zLiK',
-                // sexo: string = 'I'
+                sexo: Sexo
             ) {
 
         console.log('Usuario constructor');
@@ -28,7 +26,7 @@ export class Usuario {
         this.apellido = apellido;
         this.email = email;
         this.avatar = avatar;
-        // this.sexo = sexo;
+        this.sexo = sexo;
     }
-
 }
+
