@@ -21,3 +21,8 @@
          list-style: none;
      }
  }
+
+ .panel-body {
+    display: flex;
+    justify-content: space-around;
+ }
