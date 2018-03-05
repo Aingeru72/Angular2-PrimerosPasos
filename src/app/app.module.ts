@@ -18,6 +18,8 @@ import { Page404Component } from './page404/page404.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
+import { RecetarioComponent } from './recetario/recetario.component;
+import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component'';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
     CocheComponent,
     CatalogoComponent,
     RoundPipe,
-    FilterCoche
+    FilterCoche,
+    RecetarioComponen,
+    RecetaDetalleComponentt
   ],
   imports: [
     BrowserModule,
