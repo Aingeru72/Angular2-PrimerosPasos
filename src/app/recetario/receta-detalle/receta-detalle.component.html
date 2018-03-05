@@ -1,3 +1,28 @@
-<p>
-  receta-detalle works!
-</p>
+
+<div class="row">
+  <div class="col-md-5">
+    <h2>{{receta.nombre}}</h2>
+    <a class="thumbnail">
+      <img class="img-rounded" src="{{receta.foto}}" alt="{{receta.nombre}}">
+    </a>
+    <p id="pieFoto">
+      <span class="glyphicon glyphicon-heart" aria-hidden="true" (click)="sumLike()"> {{receta.likes}}</span>
+      <span id="cocinero">By {{receta.cocinero}}</span>
+    </p>
+    
+  </div>
+  
+  <div class="col-md-7">
+      <h2>Ingredientes</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor='let ingrediente of receta.ingredientes'>{{ingrediente}}</li>
+    </ul>
+  </div> 
+</div>
+
+<div id="recetaDesc">
+  <p>{{receta.descripcion}}</p>
+</div>
+
+
+

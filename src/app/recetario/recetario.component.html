@@ -1,3 +1,25 @@
-<p>
-  recetario works!
-</p>
+<div class="container">
+  <!-- Buscador de recetas -->
+  <div id="buscadorRecetas">
+    <input type="text" class="form-control" placeholder="Buscar receta..." [(ngModel)]="searchText">
+  </div>
+
+  <div class="row">
+    <!-- Lista de recetas -->
+    <div id="listaRecetas" class="col-md-3">
+      <h2>Recetas</h2>
+      <div class="list-group">
+        <a *ngFor='let receta of listaRecetas | filterRecetas : searchText' class="list-group-item" (click)="setActive($event.target, receta)">
+            {{receta.nombre}}
+        </a>
+    </div>
+    </div><!-- END #listaRecetas -->
+
+    <!-- Componente: RecetaDetalleComponent -->
+    <div id="detalleRecetaComp" class="col-md-9">
+        <app-receta-detalle [receta]="receta"></app-receta-detalle>
+    </div>
+
+  </div><!-- END .row -->
+  
+</div>

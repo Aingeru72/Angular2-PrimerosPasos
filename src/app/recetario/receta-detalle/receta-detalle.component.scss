@@ -1,0 +1,22 @@
+/* Estilos de RecetaDetalleComponent */
+
+p {
+    font-size: 1.3em;
+}
+
+#pieFoto{
+
+    .glyphicon-heart {
+        color: red;
+        font-weight: 600;
+    }
+    
+    #cocinero {
+        float: right;
+        font-style: italic;
+    }
+}
+
+#recetaDesc {
+    text-align: justify;
+}

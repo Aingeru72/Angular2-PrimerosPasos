@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'propiedades',    component: PropiedadesComponent },
   { path: 'usuario',        component: UsuarioComponent },
   { path: 'concesionario',  component: ConcesionarioComponent },
-  { path: 'recetario',  component: RecetarioComponent },
+  { path: 'recetario',      component: RecetarioComponent },
   { path: '**',             component: Page404Component }
 ];
 

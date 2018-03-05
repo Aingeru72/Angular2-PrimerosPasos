@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AppRouter } from './app.routes';
 // Services
 import { CochesService } from './providers/coches.service';
+import { RecetasService } from './providers/recetas.service';
 // Pipes
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterCoche } from './pipes/filter-coche.pipe';
+import { FilterRecetas } from './pipes/filter-recetas.pipe';
 // Componentes
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,11 +20,12 @@ import { Page404Component } from './page404/page404.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
-import { RecetarioComponent } from './recetario/recetario.component;
-import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component'';
+import { RecetarioComponent } from './recetario/recetario.component';
+import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
 
 @NgModule({
   declarations: [
+    // Components
     AppComponent,
     HomeComponent,
     RecetaComponent,
@@ -32,10 +35,13 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     ConcesionarioComponent,
     CocheComponent,
     CatalogoComponent,
+    RecetarioComponent,
+    RecetaDetalleComponent,
+    // Pipes
     RoundPipe,
+    // Filtros
     FilterCoche,
-    RecetarioComponen,
-    RecetaDetalleComponentt
+    FilterRecetas
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,8 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetasService
   ],
   bootstrap: [AppComponent]
 })
