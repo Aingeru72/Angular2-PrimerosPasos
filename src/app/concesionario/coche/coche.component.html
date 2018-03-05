@@ -1,14 +1,23 @@
 
 <div class="col-sm-6 col-md-4" (click)='seleccionar($event)'>
   <div class="thumbnail">
-    <img src="{{coche.imagen}}" alt="{{coche.modelo}} {{coche.modelo}}">
+    <img src="{{cocheBase.foto}}" alt="{{cocheBase.modelo}} {{cocheBase.modelo}}">
     <div class="caption">
-      <h4>{{coche.marca}} {{coche.modelo}} <span *ngIf="coche.version != undefined"> {{coche.version}}</span></h4>
+      <h4>{{cocheBase.marca}} {{cocheBase.modelo}} <!-- <span *ngIf="coche.version != undefined"> --> {{cocheBase.version}}<!-- </span> --></h4>
       <ul>
-        <li><b>Puertas: </b>{{coche.puertas}}</li>
-        <li><b>Caballos: </b>{{coche.caballos}}</li>
-        <li><b>Consumo: </b>{{coche.consumo}}</li>
-        <li><b>Tipo: </b>{{coche.tipo}}</li>
+        <li>
+          <b>Puertas: </b>{{cocheBase.puertas}}
+          <span [class]="(cocheBase.puertas-cocheComparar.puertas>0)?'badge positivo':'badge negativo'">{{cocheBase.puertas-cocheComparar.puertas}}</span>
+        </li>
+        <li>
+          <b>Caballos: </b>{{cocheBase.caballos}} CV
+          <span [class]="(cocheBase.caballos-cocheComparar.caballos>0)?'badge positivo':'badge negativo'">{{cocheBase.caballos-cocheComparar.caballos}}</span>
+        </li>
+        <li>
+          <b>Consumo: </b>{{cocheBase.consumo}} L
+          <span [class]="(cocheBase.consumo-cocheComparar.consumo>0)?'badge negativo':'badge positivo'">{{cocheBase.consumo-cocheComparar.consumo | round}}</span>
+        </li>
+        <li *ngIf="cocheBase.tipo != null"><b>Tipo: </b>{{cocheBase.tipo}}</li>
       </ul>
     </div>
   </div>

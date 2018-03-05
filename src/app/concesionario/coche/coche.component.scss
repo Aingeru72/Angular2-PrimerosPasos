@@ -8,10 +8,23 @@
 
 .thumbnail {
     min-width: 250px;
+
+    img {
+        width: 250px;
+        height: 200px;
+    }
 }
 
 .caption {
     ul {
         list-style: none;
     }
+}
+
+.positivo {
+    background: cornflowerblue;
+}
+
+.negativo {
+    background: coral;
 }

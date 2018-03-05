@@ -6,7 +6,7 @@ export class Coche {
     marca: string;
     modelo: string;
     version: string;
-    imagen: string;
+    foto: string;
     // características
     puertas: number;
     caballos: number;
@@ -14,18 +14,19 @@ export class Coche {
     tipo: Tipo;
 
     constructor(marca: string,
-                modelo: string,
-                version: string,
-                puertas: number = 0,
-                caballos: number = 0,
-                consumo: number = 0,
-                tipo: Tipo
+                modelo?: string,
+                version?: string,
+                foto: string = '/assets/img/coche_default.jpg',
+                puertas?: number,
+                caballos?: number,
+                consumo?: number,
+                tipo?: Tipo
                 ) {
         this.id = -1;
         this.marca = marca;
         this.modelo = modelo;
         this.version = version;
-        this.imagen = '/assets/img/coche_default.jpg';
+        this.foto = foto;
         this.puertas = puertas;
         this.caballos = caballos;
         this.consumo = consumo;
@@ -37,5 +38,5 @@ export class Coche {
 export enum Tipo {
     GASOLINA,
     DIESEL,
-    HÍBRIDO
+    HIBRIDO
 }

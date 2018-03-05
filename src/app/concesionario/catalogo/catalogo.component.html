@@ -1,6 +1,9 @@
+<!-- Con la directiva [(bananaInABox)] el binding es bidireccional: Model <-> Vista -->
+<input [(ngModel)]="searchText" placeholder=" Buscar coche...">
+
 <ul class="list-group">
-  <li *ngFor='let coche of stock' class="catalogo">
-    <a (click)='seleccionar($event, coche)'>
+  <li *ngFor='let coche of stock | filterCoche : searchText' [class.primario]="coche==cocheUno" [class.secundario]="coche==cocheDos">
+    <a (click)='seleccionar($event, coche)' [class.active]="coche==cocheUno || coche==cocheDos">
       <p>{{coche.marca}} {{coche.modelo}}</p>
     </a>
   </li>

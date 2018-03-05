@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coche, Tipo } from '../model/coche';
+import { CochesService } from '../providers/coches.service';
 
 @Component({
   selector: 'app-concesionario',
@@ -14,21 +15,25 @@ export class ConcesionarioComponent implements OnInit {
   coche1: Coche;  // 1.coche a comparar
   coche2: Coche;  // 2.coche a comparar
 
-  constructor() {
+  // Inicializar los atributos
+  constructor(public cocheService: CochesService) {
     console.log('ConcesionarioComponent constructor');
 
-    this.coche1 = new Coche('Coche1', '', '', 0, 0, 0, 0);
-    this.coche2 = new Coche('Coche2', '', '', 0, 0, 0, 0);
-
+    this.coche1 = new Coche('Coche1');
+    this.coche2 = new Coche('Coche2');
     this.stock = new Array<Coche>();
-    this.stock.push( new Coche('Audi', 'R8', '5.2 FSI Quattro', 3, 525, 13.7, Tipo.GASOLINA) );
+
+    // Estos datos nos los proveerá el servicio 'cocheService'
+    /* this.stock.push( new Coche('Audi', 'R8', '5.2 FSI Quattro', 3, 525, 13.7, Tipo.GASOLINA) );
     this.stock.push( new Coche('Ford', 'Mondeo', '', 5, 220, 7, Tipo.DIESEL) );
-    this.stock.push( new Coche('Honda', 'Civic', '1.5 Turbo', 3, 115, 3, Tipo.HÍBRIDO) );
-    this.stock.push( new Coche('Opel', 'Corsa', '', 5, 120, 5, Tipo.GASOLINA) );
+    this.stock.push( new Coche('Honda', 'Civic', '1.5 Turbo', 3, 115, 3, Tipo.HIBRIDO) );
+    this.stock.push( new Coche('Opel', 'Corsa', '', 5, 120, 5, Tipo.GASOLINA) ); */
   }
 
+  // Llamadas a los servicios
   ngOnInit() {
     console.log('ConcesionarioComponent init');
+    this.stock = this.cocheService.getAll();
   }
 
   /**

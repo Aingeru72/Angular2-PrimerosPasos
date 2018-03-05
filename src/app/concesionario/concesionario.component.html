@@ -3,23 +3,23 @@
 <p>Aprender a mandar parametros entre ellos mediante <code>@input</code> y <code>@output</code>.</p>
 
 <div class="row">
-  <div class="panel panel-primary col-sm-2">
+  <div class="panel panel-primary col-sm-3" id="catalogo">
     <div class="panel-heading">
       <h3 class="panel-title">Catálogo</h3>
     </div >
     <div class="panel-body">
-        <app-catalogo [stock]='stock' (eventoEmitido)='recibirCoche($event)'></app-catalogo>
+        <app-catalogo [stock]='stock' (eventoEmitido)='recibirCoche($event)' [cocheUno]="coche1" [cocheDos]="coche2"></app-catalogo>
     </div>
   </div>
 
-  <div class="panel panel-primary col-sm-offset-3">
+  <div class="panel panel-primary col-sm-offset-4">
     <div class="panel-heading">
       <h3 class="panel-title">Comparar coches</h3>
     </div>
     <div class="panel-body">
         <!-- Llamada al componente hijo: coche -->  
-        <app-coche [coche]='coche1'></app-coche>
-        <app-coche [coche]='coche2'></app-coche>
+        <app-coche [cocheBase]='coche1' [cocheComparar]='coche2' class='primario'></app-coche>
+        <app-coche [cocheBase]='coche2' [cocheComparar]='coche1' class='secundario'></app-coche>
     </div>
   </div>
 </div>

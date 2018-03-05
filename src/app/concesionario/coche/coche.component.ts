@@ -10,7 +10,8 @@ export class CocheComponent implements OnInit {
 
   // Atributos
   // @Input('atributoDeEntrada') nombreVariable: tipoVariable;
-  @Input('coche') coche: Coche;
+  @Input('cocheBase') cocheBase: Coche;
+  @Input('cocheComparar') cocheComparar: Coche;
 
   constructor() {
     console.log('CocheComponent constructor');

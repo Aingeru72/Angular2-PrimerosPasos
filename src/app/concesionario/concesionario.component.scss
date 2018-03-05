@@ -15,14 +15,42 @@
     
 }
  */
+.row {
+    margin: 0; 
+}
 
- .list-group {
-     ul {
-         list-style: none;
-     }
- }
+#catalogo .panel-body {
+    padding: 0;
+}
 
- .panel-body {
+.panel {
+    padding: 0;
+}
+
+.list-group {
+    ul {
+        list-style: none;
+    }
+}
+
+.panel-body {
     display: flex;
     justify-content: space-around;
- }
+}
+
+// Coches seleccionados
+%seleccionado {
+    border-radius: 5px;
+    margin: 2px;
+    padding-top: 15px; 
+}
+
+.primario {
+    @extend %seleccionado;
+    border: 5px solid purple;
+}
+
+.secundario {
+    @extend %seleccionado;
+    border: 5px solid darkgreen;
+}
