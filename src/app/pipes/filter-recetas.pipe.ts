@@ -10,9 +10,12 @@ export class FilterRecetas implements PipeTransform {
     searchText = searchText.toLowerCase();
     let resultado = '';
     return recetas.filter( recetaIter => {
-        resultado = recetaIter.nombre + '  ' + recetaIter.cocinero;
-        resultado = resultado.toLowerCase();
-        return resultado.includes(searchText);
+      resultado = recetaIter.nombre + '  ' + recetaIter.cocinero;
+      recetaIter.ingredientes.forEach( ingredIter => {
+        resultado += ' ' + ingredIter;
+      });
+      resultado = resultado.toLowerCase();
+      return resultado.includes(searchText);
     });
   }
 
