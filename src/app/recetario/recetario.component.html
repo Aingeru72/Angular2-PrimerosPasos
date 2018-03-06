@@ -4,7 +4,7 @@
     <span class="input-group-addon" id="filtroCeliacos">
       <input type="checkbox" aria-label="filtro para celíacos" #filtroCeliacos (change)="cambiarLista(filtroCeliacos)"> Celíacos
     </span>
-    <input type="text" class="form-control" placeholder="Busca receta por nombre o cocinero" [(ngModel)]="searchText" aria-describedby="basic-addon2">
+    <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText" aria-describedby="basic-addon2">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
   </div>
 
@@ -15,7 +15,7 @@
       <h2>Recetas</h2>
       <div class="list-group">
         <a *ngFor='let receta of listaMostrada | filterRecetas : searchText' class="list-group-item" (click)="select($event.target, receta)">
-            <b>{{receta.nombre}}</b> <br> <em>({{receta.cocinero}})</em>
+            <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
             <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten">
         </a>
     </div>
