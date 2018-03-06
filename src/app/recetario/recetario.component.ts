@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Receta } from '../model/receta';
 import { RecetasService } from '../providers/recetas.service';
 
@@ -9,8 +9,13 @@ import { RecetasService } from '../providers/recetas.service';
 })
 export class RecetarioComponent implements OnInit {
 
+  // Input
+  checked: boolean;
+
   // Atributos
+  listaMostrada: Receta[] = [];
   listaRecetas: Receta[];
+  recetasSinGluten: Receta[] = [];
   receta = null;
   temp = null;  // variable con el elemento pulsado anteriormente
 
@@ -23,6 +28,12 @@ export class RecetarioComponent implements OnInit {
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit()');
     this.listaRecetas = this.recetasService.getAll();
+    this.listaMostrada = this.listaRecetas;
+    this.listaRecetas.forEach( recetaIt => {
+      if (recetaIt.isGlutenFree) {
+        this.recetasSinGluten.push(recetaIt);
+      }
+    });
   }
 
   /**
@@ -30,7 +41,7 @@ export class RecetarioComponent implements OnInit {
    * @param event : elemento activo
    * @param elem : receta seleccionada
    */
-  setActive(event, elem) {
+  select(event, elem) {
     console.log('RecetarioComponent setActive($event, elem)');
     // console.log('$event.target: %o', event);
     console.log('elem: %o', elem);
@@ -40,6 +51,19 @@ export class RecetarioComponent implements OnInit {
     }
     event.classList.add('active');
     this.temp = event;
+  }
+
+  /**
+   * Mostrar lista completa de recetas o para celíacos
+   * @param filtroCeliacos : boolean para activar el filtro
+   */
+  cambiarLista(filtroCeliacos) {
+    console.log('RecetarioComponent cambiarLista(filtroCeliacos %b)', filtroCeliacos.checked);
+    if (filtroCeliacos.checked) {
+      this.listaMostrada = this.recetasSinGluten;
+    } else {
+      this.listaMostrada = this.listaRecetas;
+    }
   }
 
 }

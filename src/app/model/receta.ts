@@ -24,7 +24,7 @@ export class Receta {
         this.descripcion = descripcion;
         this.foto = foto;
         this.likes = likes;
-        this.isGlutenFree = false;
+        this.isGlutenFree = isGlutenFree;
         this.cocinero = cocinero;
         this.ingredientes = [];
     }

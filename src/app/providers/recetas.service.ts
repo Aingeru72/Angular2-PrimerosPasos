@@ -18,7 +18,7 @@ export class RecetasService {
     let recetas = new Array<Receta>();
     let receta;
 
-    const jsonRecetas = JSON.parse(MOCK_RECETA.recetario);
+    const jsonRecetas = JSON.parse(MOCK_RECETA);
 
     jsonRecetas.forEach( element => {
 
