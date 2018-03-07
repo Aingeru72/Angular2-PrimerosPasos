@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
-  Nueva receta
+<button type="button" id="btn-add-receta" class="btn btn-warning" data-toggle="modal" data-target="#modalReceta" title="Añadir nueva receta">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 </button>
 
 <!-- Modal -->
@@ -9,7 +9,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" id="cerrar-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Nueva receta</h4>
+        <h3 class="modal-title" id="myModalLabel">Nueva receta</h3>
       </div>
       <div class="modal-body">
         <p><b>Valores:</b> {{ formulario.value | json }}</p>

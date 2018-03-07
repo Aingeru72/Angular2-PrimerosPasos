@@ -39,19 +39,25 @@ export class FormNuevaRecetaComponent implements OnInit {
     });
   }
 
+  /**
+   * Añadir receta a la lista de recetas
+   */
   submit(elem): void {
     console.log('FormNuevaRecetaComponent submit()');
 
-    // TODO: recoger datos del formulario
     const nombre = this.formulario.value.nombre;
     const cocinero = this.formulario.value.cocinero;
     const gluten = this.formulario.value.gluten;
+    // TODO: Verificar que es una dirección de imagen valida
     const foto = (this.formulario.value.foto) ? this.formulario.value.foto : '/assets/img/receta_default.jpg';
     const descripcion = this.formulario.value.descripcion;
+    // TODO: Añadir ingredientes (FormArray)
 
     const receta = new Receta(nombre, descripcion, foto, 0, gluten, cocinero);
     this.recetasService.add(receta);
 
+    // resetar inputs
+    this.formulario.reset();
     // Cerrar ventana modal del formulario, forzando la ejecución de la X del modal
     $('#cerrar-modal').click();
   }

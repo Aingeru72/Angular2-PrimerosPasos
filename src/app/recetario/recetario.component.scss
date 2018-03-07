@@ -1,14 +1,19 @@
 /* Estilos de RecetarioComponent */
 
 #buscadorRecetas {
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
 
-    input[type="checkbox"] {
-        width: 15px;
-        height: 15px;
-        vertical-align: bottom;
+    #filtroCeliacos {
+        background-color: #009900;
+        color: white;
+
+        input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            vertical-align: bottom;
+        }
     }
-
+    
     .glyphicon-search {
         top: 0;
     }
@@ -16,16 +21,36 @@
 
 #listaRecetas {
 
-    a.list-group-item {
-        position: relative;
-        .icono-gluten {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            width: 25px;
-            height: auto;
-        }
+    padding: 0;
+
+    .panel-heading {
+        padding: 0px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    
-    
+
+    .panel-body {
+        padding: 0;
+
+        .seleccionado {
+            background-color: orange;
+        }
+
+        a.list-group-item {
+            position: relative;
+
+            
+
+            .icono-gluten {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                width: 25px;
+                height: auto;
+            }
+        }
+
+        
+    }
 }

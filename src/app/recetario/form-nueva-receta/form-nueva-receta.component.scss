@@ -1,44 +1,60 @@
-// Sección de datos principales
-#datos-nueva-receta {
-    width: 50%;
-
-    label {
-        width: 25%;
+/* #btn-add-receta {
+    border-radius: 25px;
+    width: 35px;
+    text-align: center;
+    float: right;
+    
+    span.glyphicon-plus {
+        left: -2px;
     }
-}
+} */
 
-// Sección de carga de la foto
-#foto-nueva-receta {
-    width: 50%;
+.modal-content {
 
-    div#img-nueva-receta {
-        width: 100%;
-        height: 150px;
-        margin-bottom: 10px;
-        background-image: url(/assets/img/receta_default.jpg);
-        background-size: cover;
-        background-position: center;
+    color: black;
 
-        img {
-            width: 100%;
-        }
-    }
+    // Sección de datos principales
+    #datos-nueva-receta {
+        width: 50%;
 
-    #input-url-foto {
         label {
-            width: 13%;
-        }
-
-        input {
-            width: 85%;
+            width: 25%;
         }
     }
-}
 
-// Sección descripción
-#desc-nueva-receta {
+    // Sección de carga de la foto
+    #foto-nueva-receta {
+        width: 50%;
 
-    textarea {
-        resize: vertical;
+        div#img-nueva-receta {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            background-image: url(/assets/img/receta_default.jpg);
+            background-size: cover;
+            background-position: center;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #input-url-foto {
+            label {
+                width: 13%;
+            }
+
+            input {
+                width: 85%;
+            }
+        }
+    }
+
+    // Sección descripción
+    #desc-nueva-receta {
+
+        textarea {
+            resize: vertical;
+        }
     }
 }

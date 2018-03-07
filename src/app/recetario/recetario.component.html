@@ -7,13 +7,16 @@
     <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText" aria-describedby="basic-addon2">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
   </div>
-  <app-form-nueva-receta></app-form-nueva-receta>
+  
 
   <div class="row">
     <!-- Lista de recetas -->
-    <div id="listaRecetas" class="col-md-3">
-      <h2>Recetas</h2>
-      <div class="list-group">
+    <div id="listaRecetas" class="panel panel-primary col-md-3">
+      <div class="panel-heading">
+        <!-- Meter en un panel -->
+        <h2>Recetas</h2><app-form-nueva-receta></app-form-nueva-receta>
+      </div>
+      <div class="panel-body list-group">
         <a *ngFor='let receta of listaMostrada | filterRecetas : searchText' class="list-group-item" (click)="select($event.target, receta)">
             <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
             <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
@@ -22,7 +25,7 @@
     </div><!-- END #listaRecetas -->
 
     <!-- Componente: RecetaDetalleComponent -->
-    <div id="detalleRecetaComp" class="col-md-9">
+    <div id="detalleRecetaComp" class="col-md-9 panel-body">
         <app-receta-detalle [receta]="receta"></app-receta-detalle>
     </div>
 

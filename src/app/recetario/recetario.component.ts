@@ -47,9 +47,10 @@ export class RecetarioComponent implements OnInit {
     console.log('elem: %o', elem);
     this.receta = elem;
     if (this.temp != null) {
-      this.temp.classList.remove('active');
+      this.temp.classList.remove('seleccionado');
     }
-    event.classList.add('active');
+    // Clase nativa de bootstrap 'Active'
+    event.classList.add('seleccionado');
     this.temp = event;
   }
 
