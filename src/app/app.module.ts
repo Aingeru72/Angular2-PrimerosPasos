@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Modulo para routing (navegación)
 import { AppRouter } from './app.routes';
 // Services
@@ -22,9 +22,15 @@ import { CocheComponent } from './concesionario/coche/coche.component';
 import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
+import { FormNuevaRecetaComponent } from './recetario/form-nueva-receta/form-nueva-receta.component';
 
 @NgModule({
   declarations: [
+    // Pipes
+    RoundPipe,
+    // Filtros
+    FilterCoche,
+    FilterRecetas,
     // Components
     AppComponent,
     HomeComponent,
@@ -37,16 +43,13 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     CatalogoComponent,
     RecetarioComponent,
     RecetaDetalleComponent,
-    // Pipes
-    RoundPipe,
-    // Filtros
-    FilterCoche,
-    FilterRecetas
+    FormNuevaRecetaComponent
   ],
   imports: [
     BrowserModule,
     AppRouter,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CochesService,

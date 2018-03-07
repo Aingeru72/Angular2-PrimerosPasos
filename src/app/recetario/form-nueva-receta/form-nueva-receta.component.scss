@@ -1,0 +1,44 @@
+// Sección de datos principales
+#datos-nueva-receta {
+    width: 50%;
+
+    label {
+        width: 25%;
+    }
+}
+
+// Sección de carga de la foto
+#foto-nueva-receta {
+    width: 50%;
+
+    div#img-nueva-receta {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 10px;
+        background-image: url(/assets/img/receta_default.jpg);
+        background-size: cover;
+        background-position: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    #input-url-foto {
+        label {
+            width: 13%;
+        }
+
+        input {
+            width: 85%;
+        }
+    }
+}
+
+// Sección descripción
+#desc-nueva-receta {
+
+    textarea {
+        resize: vertical;
+    }
+}

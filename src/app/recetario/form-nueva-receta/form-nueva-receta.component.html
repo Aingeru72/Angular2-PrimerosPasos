@@ -1,0 +1,65 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+  Nueva receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="cerrar-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nueva receta</h4>
+      </div>
+      <div class="modal-body">
+        <p><b>Valores:</b> {{ formulario.value | json }}</p>
+        <p><b>Estado:</b> {{ formulario.status | json }}</p>
+        <!-- 'novalidate' : Haremos las validaciones en TS no en HTML -->
+        <form [formGroup]="formulario" (ngSubmit)="submit($event)" novalidate>
+
+          <div class="row">
+            <div class="col-xs-6" id="datos-nueva-receta">
+              <div class="form-group form-inline">
+                <label for="form-nombre">Nombre* </label>
+                <input id="form-nombre" type="text" formControlName="nombre" class="form-control" placeholder="Nombre" tabindex="1">
+                <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 1 letra</p>
+              </div>
+    
+              <div class="form-group form-inline">
+                <label for="form-cocinero">Cocinero </label>
+                <input id="form-cocinero" type="text" formControlName="cocinero" class="form-control" placeholder="Cocinero" tabindex="2">
+              </div>
+    
+              <div class="form-group form-inline">
+                <label for="form-gluten">Gluten </label>
+                Sí <input id="form-gluten" type="radio" value="true" checked formControlName="gluten" class="form-control" tabindex="3"> 
+                No <input id="form-gluten" type="radio" value="false" formControlName="gluten" class="form-control" tabindex="3"> 
+              </div>
+            </div> <!-- Sección nombre|cocinero|gluten -->
+
+            <div class="col-xs-6" id="foto-nueva-receta">
+                <div id="img-nueva-receta">
+                  <img [src]="formulario.value.foto" [alt]="formulario.value.nombre" title="foto de la receta" class="img-rounded">
+                </div>
+                <div class="form-group form-inline" id="input-url-foto">
+                  <label for="form-foto">Foto </label>
+                  <input id="form-foto" type="text" formControlName="foto" class="form-control" placeholder="URL de la foto" tabindex="4"> 
+                </div>
+            </div>
+          </div> <!-- Sección superior -->
+
+          <div id="desc-nueva-receta">
+              <div class="form-group">
+                <label for="form-desc">Descripción* </label>
+                <textarea id="form-desc" type="text" rows="4" formControlName="descripcion" class="form-control" placeholder="Descripción de la receta (mín. 100 caracteres)" tabindex="5"> </textarea>
+              </div>
+          </div>
+          <em>(*) Campos obligatorios.</em>
+          <br><br>
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Añadir">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

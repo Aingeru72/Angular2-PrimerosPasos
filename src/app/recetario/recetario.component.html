@@ -7,7 +7,7 @@
     <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText" aria-describedby="basic-addon2">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
   </div>
-
+  <app-form-nueva-receta></app-form-nueva-receta>
 
   <div class="row">
     <!-- Lista de recetas -->
@@ -18,7 +18,7 @@
             <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
             <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
         </a>
-    </div>
+      </div>
     </div><!-- END #listaRecetas -->
 
     <!-- Componente: RecetaDetalleComponent -->

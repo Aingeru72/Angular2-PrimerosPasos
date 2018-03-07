@@ -5,6 +5,9 @@ import { MOCK_RECETA } from './mock.recetas';
 @Injectable()
 export class RecetasService {
 
+  // Variable global
+  recetas = new Array<Receta>();
+
   constructor() {
     console.log('RecetasService constructor()');
   }
@@ -15,7 +18,7 @@ export class RecetasService {
   getAll(): Array<Receta> {
     console.log('RecetasService getAll()');
     // tslint:disable-next-line:prefer-const
-    let recetas = new Array<Receta>();
+    this.recetas = [];
     let receta;
 
     const jsonRecetas = JSON.parse(MOCK_RECETA);
@@ -33,11 +36,20 @@ export class RecetasService {
       element.ingredientes.forEach(ingrediente => {
         receta.addIngrediente(ingrediente);
       });
-      recetas.push(receta);
+      this.recetas.push(receta);
 
     });
 
-    return recetas;
+    return this.recetas;
+  }
+
+  /**
+   * Añadir nuevas recetas introducidas por el usuario
+   * @param receta : nueva receta a añadir
+   */
+  add( receta: Receta ) {
+    console.log('RecetasService add(receta)');
+    this.recetas.unshift(receta);
   }
 
 }
