@@ -2,7 +2,7 @@
   <!-- Buscador de recetas -->
   <div class="input-group" id="buscadorRecetas">
     <span class="input-group-addon" id="filtroCeliacos">
-      <input type="checkbox" aria-label="filtro para celíacos" #filtroCeliacos (change)="cambiarLista(filtroCeliacos)"> Celíacos
+      <input type="checkbox" aria-label="filtro para celíacos" #filtroCeliacos (change)="cambiarLista(filtroCeliacos)" title="selecciona para mostrar recetas sin gluten"> <b>Celíacos</b>
     </span>
     <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText" aria-describedby="basic-addon2">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
@@ -16,7 +16,7 @@
       <div class="list-group">
         <a *ngFor='let receta of listaMostrada | filterRecetas : searchText' class="list-group-item" (click)="select($event.target, receta)">
             <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
-            <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten">
+            <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
         </a>
     </div>
     </div><!-- END #listaRecetas -->

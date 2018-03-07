@@ -3,11 +3,11 @@
   <div class="col-md-5">
     <h2>{{receta.nombre}}</h2>
     <a class="thumbnail">
-      <img class="img-rounded" src="{{receta.foto}}" alt="{{receta.nombre}}" data-toggle="modal" data-target="#modalFoto">
-      <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten">
+      <img class="img-rounded" src="{{receta.foto}}" alt="{{receta.nombre}}" data-toggle="modal" data-target="#modalFoto" title="Pulsa para hacer zoom">
+      <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
     </a>
     <p id="pieFoto">
-      <span class="glyphicon glyphicon-heart" aria-hidden="true" (click)="sumLike()"> {{receta.likes}}</span>
+      <span class="glyphicon glyphicon-heart" aria-hidden="true" (click)="sumLike()" style="user-select: none"> {{receta.likes}}</span>
       <span id="cocinero">By {{receta.cocinero}}</span>
     </p>
     
