@@ -3,6 +3,12 @@
 #buscadorRecetas {
     /* margin-bottom: 20px; */
 
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        vertical-align: bottom;
+    }
+
     .glyphicon-search {
         top: 0;
     }

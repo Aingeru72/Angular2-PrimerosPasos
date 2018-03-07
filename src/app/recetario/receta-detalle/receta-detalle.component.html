@@ -7,7 +7,7 @@
       <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
     </a>
     <p id="pieFoto">
-      <span class="glyphicon glyphicon-heart" aria-hidden="true" (click)="sumLike()" style="user-select: none"> {{receta.likes}}</span>
+      <span class="glyphicon glyphicon-heart" aria-hidden="true" (click)="sumLike()" style="user-select: none" title="Me gusta!"> </span> <span id="likesCont">{{receta.likes}}</span>
       <span id="cocinero">By {{receta.cocinero}}</span>
     </p>
     
