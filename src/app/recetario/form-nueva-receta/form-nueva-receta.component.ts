@@ -82,12 +82,12 @@ export class FormNuevaRecetaComponent implements OnInit {
     // TODO: Verificar que es una dirección de imagen valida
     const foto = (this.formulario.value.foto) ? this.formulario.value.foto : '/assets/img/receta_default.jpg';
     const descripcion = this.formulario.value.descripcion;
-    // TODO: Añadir ingredientes (FormArray)
+    // Crear receta, rellenarla y añadirla a la lista de recetas
+    const receta = new Receta(nombre, descripcion, foto, 0, isGlutenFree, cocinero);
+    // Añadir ingredientes (FormArray)
     this.formulario.value.ingredientes.map(element => {
       receta.addIngrediente( element.nombre );
     });
-
-    const receta = new Receta(nombre, descripcion, foto, 0, isGlutenFree, cocinero);
     this.recetasService.add(receta);
 
     // resetar inputs
@@ -99,6 +99,10 @@ export class FormNuevaRecetaComponent implements OnInit {
     $('#cerrar-modal').click();
   }
 
+  /**
+   * Devuelve el estado de validez del input
+   * @param control : estados del input
+   */
   validationStatus( control: FormControl ): string {
 
     const CLASS_ERROR = 'has-error';

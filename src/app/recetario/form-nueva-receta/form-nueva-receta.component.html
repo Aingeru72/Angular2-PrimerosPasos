@@ -12,8 +12,9 @@
         <h3 class="modal-title" id="myModalLabel">Nueva receta</h3>
       </div>
       <div class="modal-body">
-        <p><b>Valores:</b> {{ formulario.value | json }}</p>
-        <p><b>Estado:</b> {{ formulario.status | json }}</p>
+        <!-- Modo debug -->
+        <!-- <p><b>Valores:</b> {{ formulario.value | json }}</p>
+        <p><b>Estado:</b> {{ formulario.status | json }}</p> -->
         <!-- 'novalidate' : Haremos las validaciones en TS no en HTML -->
         <form [formGroup]="formulario" (ngSubmit)="submit($event)" novalidate>
 
@@ -73,16 +74,22 @@
 
           <div class="sec-ingredientes">
             <label for="form-ingrediente">Ingredientes (mínimo 2)</label>
-            <span class="glyphicon glyphicon-plus" (click)="clickOtroIngrediente()" aria-hidden="true"></span>
             <div formArrayName="ingredientes">                                      
               <div *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                                       
-                  <div [formGroupName]="i">
-                    <input formControlName="nombre" class="ingrediente-input form-control" type="text" placeholder="Nuevo Ingrediente" >                        
-                    <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                  <div [formGroupName]="i" [ngClass]="validationStatus(ingrediente)" class="input-group has-feedback">
+                    <input formControlName="nombre" class="ingrediente-input form-control" type="text" placeholder="Nuevo Ingrediente" tabindex={{i+6}}>                        
+                    <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)" title="eliminar ingrediente"></span>
+                    <span *ngIf="ingrediente.dirty">
+                      <span *ngIf="ingrediente.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span *ngIf="ingrediente.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </span>
                   </div>                   
               </div>
               <p class="text-danger" *ngIf="formulario.controls.ingredientes.invalid && formulario.controls.ingredientes.dirty">*Escribe el nombre del ingrediente</p>                                        
             </div>
+            <button type="button" class="btn btn-primary btn-md" (click)="clickOtroIngrediente()" title="Añadir nuevo ingrediente">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            </button>
           </div>
           <br>
           <em id="info-required-fields">(*) Campos obligatorios.</em>

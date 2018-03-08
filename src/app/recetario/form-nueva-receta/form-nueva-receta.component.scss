@@ -77,6 +77,27 @@
         }
     }
 
+    .sec-ingredientes {
+        .input-group {
+            width: 100%;
+            margin-bottom: 10px;
+            
+            .ingrediente-input {
+                width: 90%;
+                border-radius: 5px;
+            }
+            .glyphicon-remove-circle {
+                right: -4%;
+                top: 10px;
+                width: 10%;
+                float: right;
+            }
+            .form-control-feedback {
+                right: 10%;
+            }
+        }
+    }
+
     /* #info-required-fields {
         margin: 20px 0;
     } */
