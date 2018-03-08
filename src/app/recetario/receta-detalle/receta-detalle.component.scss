@@ -1,5 +1,9 @@
 /* Estilos de RecetaDetalleComponent */
 
+p {
+    font-size: 1.3em;
+}
+
 .thumbnail {
     position: relative;
 
@@ -10,10 +14,6 @@
         width: 40px;
         height: auto;
     }
-}
-
-p {
-    font-size: 1.3em;
 }
 
 #pieFoto{
@@ -31,6 +31,10 @@ p {
         float: right;
         font-style: italic;
     }
+}
+
+#lista-ingredientes {
+    margin-top: 40px;
 }
 
 #recetaDesc {

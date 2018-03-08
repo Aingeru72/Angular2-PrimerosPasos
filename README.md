@@ -1,29 +1,60 @@
-# Web Angular2 - Primeros pasos
+# Web Angular2 - Primeros pasos para aprender a usar Angular 2
 
-Proyecto con ejemplos en Angular2.
+Proyecto con componentes de Angular2.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
+* Componentes
+* Herencia
+* Routing
+* ReactiveForms
+* Services
 
-## Development server
+## Capturas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Ejemplo de Recetario
 
-## Code scaffolding
+Existe herencia entre los siguiente componentes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+RecetarioComponente : componente padre (imagen 1) con una lista de recetas obtenida mediante un servicio de Angular 2.
 
-## Build
+![RecetarioComponent](https://github.com/Aingeru72/Angular2-PrimerosPasos/blob/master/capturas/captura-recetario.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+RecetarioComponente/RecetaDetalle : componenete hijo para mostrar el detalle de cada receta (imagen2).
+
+![RecetaDetalle](https://github.com/Aingeru72/Angular2-PrimerosPasos/blob/master/capturas/captura-recetaDetalle.png)
+
+RecetarioComponente/FormularioNuevaReceta : formulario reactivo de Angular2 que se muestra en un modal para añadir nuevas recetas (imagen3).
+
+![FormularioNuevaReceta](https://github.com/Aingeru72/Angular2-PrimerosPasos/blob/master/capturas/captura-formularioNuevaReceta.png)
+
+## Arrancar el proyecto
+
+1. Descargar el código y abrirlo en tu IDE preferido.
+2. Abrir consola de comandos en la carpeta del proyecto y ejecutar las siguientes lineas:
+    2.1. `npm install` para instalar las dependencias guardadas en `node-modules`.
+    2.2. Abrir servidor de desarrollo con `ng serve --open`.
+
+## Como generar el proyecto Angular 2
+
+Ejecutar `ng build` para crear un nuevo proyecto. Los archivos de desarrollo se crearan en la carpeta `dist/` y el producto final en `-prod`.
+
+Este proyecto ha sido generado mediante [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
+
+## Estructura del proyecto Angular2
+
+Ejecutar `ng generate component <<component-name>>` para generar un nuevo componente. También se pueden crear: `ng generate directive|pipe|service|class|guard|interface|enum|module`. Los componenete creados de esta manera, se añadiran al archivo `app.module.ts`.
+
+## Abrir en servidor de desarrollo
+
+Ejecutar `ng serve --open` parar lanzar en el navegador un servidor de desarrollo en `http://localhost:4200/`. La app se actualizará automáticamente cada vez que se guarden los cambios en el area de trabajo.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecutar `ng test` para ejecutar test unitarios mediante [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Ejecutar `ng e2e` para ejecutar test exteremo-a-extremo (end-to-end) mediante [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Más ayuda
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Para más información acerca de Angular CLI usar `ng help` o entrar en [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
