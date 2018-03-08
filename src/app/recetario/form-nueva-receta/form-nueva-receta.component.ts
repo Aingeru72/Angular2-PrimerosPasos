@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../../providers/recetas.service';
 import { Receta } from '../../model/receta';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 // Importar jQuery > npm install --save-dev jquery
 import * as $ from 'jquery';
 
@@ -30,9 +30,9 @@ export class FormNuevaRecetaComponent implements OnInit {
     this.formulario = this.fb.group({
 
       // FormControl (~input) => [ '(default) value' , [Validators] ]
-      nombre: ['', [Validators.required, Validators.minLength(1)] ],
+      nombre: ['', [Validators.required, Validators.minLength(3)] ],
       cocinero: ['', [Validators.minLength(3)] ],
-      gluten: ['false', [] ],
+      isGlutenFree: [ 'false', [] ],
       foto: ['', [] ],
       descripcion: ['', [Validators.required, Validators.minLength(100)] ]
 
@@ -47,19 +47,31 @@ export class FormNuevaRecetaComponent implements OnInit {
 
     const nombre = this.formulario.value.nombre;
     const cocinero = this.formulario.value.cocinero;
-    const gluten = this.formulario.value.gluten;
+    const isGlutenFree = (this.formulario.value.isGlutenFree) ? true : false;
     // TODO: Verificar que es una dirección de imagen valida
     const foto = (this.formulario.value.foto) ? this.formulario.value.foto : '/assets/img/receta_default.jpg';
     const descripcion = this.formulario.value.descripcion;
     // TODO: Añadir ingredientes (FormArray)
 
-    const receta = new Receta(nombre, descripcion, foto, 0, gluten, cocinero);
+    const receta = new Receta(nombre, descripcion, foto, 0, isGlutenFree, cocinero);
     this.recetasService.add(receta);
 
     // resetar inputs
-    this.formulario.reset();
+    // this.formulario.reset();
+    this.crearFormulario();
     // Cerrar ventana modal del formulario, forzando la ejecución de la X del modal
     $('#cerrar-modal').click();
+  }
+
+  validationStatus( control: FormControl ): string {
+
+    const CLASS_ERROR = 'has-error';
+    const CLASS_SUCCESS = 'has-success';
+
+    if ( control.dirty ) {
+      return ( control.valid ) ? CLASS_SUCCESS : CLASS_ERROR;
+    }
+
   }
 
 }

@@ -19,27 +19,30 @@
 
           <div class="row">
             <div class="col-xs-6" id="datos-nueva-receta">
-              <div class="form-group form-inline">
+              <div [ngClass]="validationStatus(formulario.controls.nombre)" class="form-group form-inline">
                 <label for="form-nombre">Nombre* </label>
-                <input id="form-nombre" type="text" formControlName="nombre" class="form-control" placeholder="Nombre" tabindex="1">
-                <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 1 letra</p>
+                <input id="form-nombre" class="form-control" type="text" formControlName="nombre" placeholder="Nombre" tabindex="1">
+                <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 3 letra</p>
               </div>
     
-              <div class="form-group form-inline">
+              <div [ngClass]="validationStatus(formulario.controls.cocinero)" class="form-group form-inline">
                 <label for="form-cocinero">Cocinero </label>
                 <input id="form-cocinero" type="text" formControlName="cocinero" class="form-control" placeholder="Cocinero" tabindex="2">
+                <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">Mínimo 3 letras</p>
               </div>
     
-              <div class="form-group form-inline">
-                <label for="form-gluten">Gluten </label>
-                Sí <input id="form-gluten" type="radio" value="true" checked formControlName="gluten" class="form-control" tabindex="3"> 
-                No <input id="form-gluten" type="radio" value="false" formControlName="gluten" class="form-control" tabindex="3"> 
+              <div class="form-group form-inline" id="gluten-row">
+                <label for="form-gluten">Apto para celíacos </label>
+                <div class="gluten-options">
+                  Sí <input id="form-gluten" type="radio" value="true" checked formControlName="isGlutenFree" class="form-control" tabindex="3"> 
+                  No <input id="form-gluten" type="radio" value="false" formControlName="isGlutenFree" class="form-control" tabindex="3"> 
+                </div>
               </div>
-            </div> <!-- Sección nombre|cocinero|gluten -->
+            </div> <!-- END Sección nombre|cocinero|gluten -->
 
             <div class="col-xs-6" id="foto-nueva-receta">
                 <div id="img-nueva-receta">
-                  <img [src]="formulario.value.foto" [alt]="formulario.value.nombre" title="foto de la receta" class="img-rounded">
+                  <img [src]="formulario.value.foto" [alt]="formulario.value.nombre" title="foto de la receta" class="img-rounded img-responsive">
                 </div>
                 <div class="form-group form-inline" id="input-url-foto">
                   <label for="form-foto">Foto </label>
@@ -49,9 +52,10 @@
           </div> <!-- Sección superior -->
 
           <div id="desc-nueva-receta">
-              <div class="form-group">
+              <div [ngClass]="validationStatus(formulario.controls.descripcion)" class="form-group">
                 <label for="form-desc">Descripción* </label>
                 <textarea id="form-desc" type="text" rows="4" formControlName="descripcion" class="form-control" placeholder="Descripción de la receta (mín. 100 caracteres)" tabindex="5"> </textarea>
+                <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">Mínimo 100 carácteres</p>
               </div>
           </div>
           <em>(*) Campos obligatorios.</em>
