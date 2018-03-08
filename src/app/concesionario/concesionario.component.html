@@ -5,7 +5,7 @@
 <div class="row">
   <div class="panel panel-primary col-sm-3" id="catalogo">
     <div class="panel-heading">
-      <h3 class="panel-title">Catálogo</h3>
+      <h3 class="panel-title">Catálogo</h3><app-form-nuevo-coche></app-form-nuevo-coche>
     </div >
     <div class="panel-body">
         <app-catalogo [stock]='stock' (eventoEmitido)='recibirCoche($event)' [cocheUno]="coche1" [cocheDos]="coche2"></app-catalogo>

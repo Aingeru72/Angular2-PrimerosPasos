@@ -1,0 +1,62 @@
+// Estilos de botón para añadir nuevo coche: botón redondo
+#btn-add-coche {
+    border-radius: 25px;
+    width: 35px;
+    text-align: center;
+    
+    span.glyphicon-plus {
+        left: -2px;
+    }
+}
+
+.modal-content {
+
+    color: black;
+
+    // Sección de datos principales
+    #datos-nuevo-coche {
+        width: 50%;
+
+        label {
+            width: 25%;
+        }
+
+        .form-control-feedback {
+            top: 25px;
+        }
+    }
+
+    // Sección de carga de la foto
+    #foto-nuevo-coche {
+        width: 50%;
+
+        div#img-nuevo-coche {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            background-image: url(/assets/img/coche_default.jpg);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #input-url-foto {
+            label {
+                width: 13%;
+            }
+
+            input {
+                width: 85%;
+            }
+        }
+    }
+
+    /* #info-required-fields {
+        margin: 20px 0;
+    } */
+
+}

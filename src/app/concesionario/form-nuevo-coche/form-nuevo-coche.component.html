@@ -1,0 +1,101 @@
+<!-- Button trigger modal -->
+<button type="button" id="btn-add-coche" class="btn btn-warning" data-toggle="modal" data-target="#modalCoche" title="Añadir nuevo coche">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalCoche" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="cerrar-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Registrar coche</h3>
+      </div>
+      <div class="modal-body">
+        <!-- Modo debug -->
+        <!-- <p><b>Valores:</b> {{ formulario.value | json }}</p>
+        <p><b>Estado:</b> {{ formulario.status | json }}</p> -->
+        <!-- 'novalidate' : Haremos las validaciones en TS no en HTML -->
+        <form [formGroup]="formulario" (ngSubmit)="submit($event)" novalidate>
+
+          <div class="row">
+            <div class="col-xs-6" id="datos-nuevo-coche">
+              <div [ngClass]="validationStatus(formulario.controls.marca)" class="form-group has-feedback">
+                <label for="form-marca">Marca* </label>
+                <input id="form-marca" class="form-control" type="text" formControlName="marca" placeholder="Marca" tabindex="1">
+                <span *ngIf="formulario.controls.marca.dirty">
+                  <span *ngIf="formulario.controls.marca.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.marca.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+                <p *ngIf="formulario.controls.marca.invalid && formulario.controls.marca.touched" class="text-danger">*Obligatorio</p>
+              </div>
+    
+              <div [ngClass]="validationStatus(formulario.controls.modelo)" class="form-group has-feedback">
+                <label for="form-modelo">Modelo* </label>
+                <input id="form-cocinero" class="form-control" type="text" formControlName="modelo" placeholder="Modelo" tabindex="2">
+                <span *ngIf="formulario.controls.modelo.dirty">
+                  <span *ngIf="formulario.controls.modelo.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.modelo.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+                <p *ngIf="formulario.controls.modelo.invalid && formulario.controls.modelo.touched" class="text-danger">*Obligatorio</p>
+              </div>
+    
+              <div [ngClass]="validationStatus(formulario.controls.version)" class="form-group has-feedback">
+                <label for="form-modelo">Versión </label>
+                <input id="form-version" class="form-control" type="text" formControlName="version" placeholder="Versión" tabindex="3">
+                <span *ngIf="formulario.controls.modelo.dirty">
+                  <span *ngIf="formulario.controls.version.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.version.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+              </div>
+
+              <div [ngClass]="validationStatus(formulario.controls.puertas)" class="form-group has-feedback">
+                <label for="form-modelo">Puertas </label>
+                <input id="form-puertas" class="form-control" type="text" formControlName="puertas" placeholder="Puertas" tabindex="4">
+                <span *ngIf="formulario.controls.modelo.dirty">
+                  <span *ngIf="formulario.controls.puertas.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.puertas.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+              </div>
+
+              <div [ngClass]="validationStatus(formulario.controls.caballos)" class="form-group has-feedback">
+                <label for="form-modelo">Caballos</label>
+                <input id="form-caballos" class="form-control" type="text" formControlName="caballos" placeholder="Caballos (CV)" tabindex="5">
+                <span *ngIf="formulario.controls.modelo.dirty">
+                  <span *ngIf="formulario.controls.caballos.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.caballos.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+              </div>
+
+              <div [ngClass]="validationStatus(formulario.controls.consumo)" class="form-group has-feedback">
+                <label for="form-modelo">Consumo</label>
+                <input id="form-consumo" class="form-control" type="text" formControlName="consumo" placeholder="Consumo (L)" tabindex="5">
+                <span *ngIf="formulario.controls.modelo.dirty">
+                  <span *ngIf="formulario.controls.consumo.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.consumo.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
+              </div>
+
+            </div> <!-- END Sección características principales del coche -->
+
+            <div class="col-xs-6" id="foto-nuevo-coche">
+                <div id="img-nuevo-coche">
+                  <img [src]="formulario.value.foto" [alt]="formulario.value.marca" title="foto del coche" class="img-rounded img-responsive">
+                </div>
+                <div class="form-group form-inline" id="input-url-foto">
+                  <label for="form-foto">Foto </label>
+                  <input id="form-foto" type="text" formControlName="foto" class="form-control" placeholder="URL de la foto" tabindex="7"> 
+                </div>
+            </div>
+          </div> <!-- Sección superior -->
+
+          <br>
+          <em id="info-required-fields">(*) Campos obligatorios.</em>
+          <br><br>
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Añadir">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

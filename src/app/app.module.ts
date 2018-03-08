@@ -23,6 +23,7 @@ import { CatalogoComponent } from './concesionario/catalogo/catalogo.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
 import { FormNuevaRecetaComponent } from './recetario/form-nueva-receta/form-nueva-receta.component';
+import { FormNuevoCocheComponent } from './concesionario/form-nuevo-coche/form-nuevo-coche.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FormNuevaRecetaComponent } from './recetario/form-nueva-receta/form-nue
     CatalogoComponent,
     RecetarioComponent,
     RecetaDetalleComponent,
-    FormNuevaRecetaComponent
+    FormNuevaRecetaComponent,
+    FormNuevoCocheComponent
   ],
   imports: [
     BrowserModule,
