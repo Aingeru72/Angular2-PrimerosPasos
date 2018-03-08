@@ -1,6 +1,15 @@
 // tslint:disable-next-line:class-name
 export const MOCK_RECETA = `[
     {
+        "nombre": "Barquitas Old el Paso",
+        "descripcion": "Old El Paso presenta las Barquitas Mexicanas, una experiencia mexicana totalmente nueva. Con el mismo sabor y textura de la tortilla regular, pero mucho más sencillas de rellenar... ¡y aún más fáciles de comer!",
+        "foto": "https://i.ytimg.com/vi/cdZQTdDx84I/maxresdefault.jpg",
+        "likes": "25",
+        "isGlutenFree": false,
+        "cocinero": "Machete",
+        "ingredientes": ["baquitas", "pechuga", "pimientos", "tomate", "cebolla"]
+    },
+    {
         "nombre": "Marmitako",
         "descripcion": "La marmita de bonito es un plato basado en Thunnus alalunga, cuyo origen se encuentra en los pescadores asturianos, cántabros y vascos.",
         "foto": "https://unareceta.com/wp-content/uploads/2016/08/receta-marmitako-de-verduras.jpg",

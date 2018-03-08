@@ -27,7 +27,7 @@
                   <span *ngIf="formulario.controls.nombre.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                   <span *ngIf="formulario.controls.nombre.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                 </span>
-                <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 3 letra</p>
+                <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 3 letras</p>
               </div>
     
               <div [ngClass]="validationStatus(formulario.controls.cocinero)" class="form-group has-feedback">
