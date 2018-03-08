@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../../providers/recetas.service';
 import { Receta } from '../../model/receta';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 // Importar jQuery > npm install --save-dev jquery
 import * as $ from 'jquery';
 
@@ -13,11 +13,13 @@ import * as $ from 'jquery';
 export class FormNuevaRecetaComponent implements OnInit {
 
   formulario: FormGroup;
+  ingredientes: FormArray;
 
   constructor( private fb: FormBuilder, public recetasService: RecetasService) {
     // Se puede acceder al Servicio 'RecetasService' con this.recetasService
     console.log('FormNuevaRecetaComponent constructor()');
     this.crearFormulario();
+    this.ingredientes = this.formulario.get('ingredientes') as FormArray;
   }
 
   ngOnInit() {
@@ -34,9 +36,38 @@ export class FormNuevaRecetaComponent implements OnInit {
       cocinero: ['', [Validators.minLength(3)] ],
       isGlutenFree: [ 'false', [] ],
       foto: ['', [] ],
-      descripcion: ['', [Validators.required, Validators.minLength(100)] ]
-
+      descripcion: ['', [Validators.required, Validators.minLength(100)] ],
+      ingredientes: this.fb.array( [ this.createIngredienteFormGroup() ],  Validators.required )
     });
+  }
+
+  /**
+   * Creamos un FormGroup para los Ingredientes
+   **/
+  createIngredienteFormGroup(): FormGroup {
+    console.log('FormNuevaRecetaComponent createIngredienteFormGroup(): FormGroup');
+    return this.fb.group({
+      nombre: ['', [Validators.required, Validators.minLength(2)]]
+    });
+  }
+
+  /**
+   * Evento para crear un nuevo Ingrediente
+   */
+  clickOtroIngrediente() {
+    console.log('FormNuevaRecetaComponent clickOtroIngrediente()');
+    this.ingredientes.push( this.createIngredienteFormGroup() );
+  }
+
+  /**
+   * Eliminar un campo de la lista de ingredientes
+   * @param index el indice del ingrediente en el formulario
+   */
+  clickEliminarIngrediente( index ) {
+    console.log('FormNuevaRecetaComponent clickEliminarIngrediente()');
+    if ( this.ingredientes.length > 1 ) {
+      this.ingredientes.removeAt(index);
+    }
   }
 
   /**
@@ -52,13 +83,18 @@ export class FormNuevaRecetaComponent implements OnInit {
     const foto = (this.formulario.value.foto) ? this.formulario.value.foto : '/assets/img/receta_default.jpg';
     const descripcion = this.formulario.value.descripcion;
     // TODO: Añadir ingredientes (FormArray)
+    this.formulario.value.ingredientes.map(element => {
+      receta.addIngrediente( element.nombre );
+    });
 
     const receta = new Receta(nombre, descripcion, foto, 0, isGlutenFree, cocinero);
     this.recetasService.add(receta);
 
     // resetar inputs
-    // this.formulario.reset();
+    /* this.formulario.reset(); */
     this.crearFormulario();
+    // Dejar solo un ingrediente
+    this.ingredientes.controls.splice(1);
     // Cerrar ventana modal del formulario, forzando la ejecución de la X del modal
     $('#cerrar-modal').click();
   }

@@ -70,7 +70,22 @@
                 <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">Mínimo 100 carácteres</p>
               </div>
           </div>
-          <em>(*) Campos obligatorios.</em>
+
+          <div class="sec-ingredientes">
+            <label for="form-ingrediente">Ingredientes (mínimo 2)</label>
+            <span class="glyphicon glyphicon-plus" (click)="clickOtroIngrediente()" aria-hidden="true"></span>
+            <div formArrayName="ingredientes">                                      
+              <div *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                                       
+                  <div [formGroupName]="i">
+                    <input formControlName="nombre" class="ingrediente-input form-control" type="text" placeholder="Nuevo Ingrediente" >                        
+                    <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                  </div>                   
+              </div>
+              <p class="text-danger" *ngIf="formulario.controls.ingredientes.invalid && formulario.controls.ingredientes.dirty">*Escribe el nombre del ingrediente</p>                                        
+            </div>
+          </div>
+          <br>
+          <em id="info-required-fields">(*) Campos obligatorios.</em>
           <br><br>
           <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Añadir">
         </form>
