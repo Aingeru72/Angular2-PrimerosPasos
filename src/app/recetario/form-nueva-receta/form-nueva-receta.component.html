@@ -19,15 +19,23 @@
 
           <div class="row">
             <div class="col-xs-6" id="datos-nueva-receta">
-              <div [ngClass]="validationStatus(formulario.controls.nombre)" class="form-group form-inline">
+              <div [ngClass]="validationStatus(formulario.controls.nombre)" class="form-group has-feedback">
                 <label for="form-nombre">Nombre* </label>
                 <input id="form-nombre" class="form-control" type="text" formControlName="nombre" placeholder="Nombre" tabindex="1">
+                <span *ngIf="formulario.controls.nombre.dirty">
+                  <span *ngIf="formulario.controls.nombre.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.nombre.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
                 <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 3 letra</p>
               </div>
     
-              <div [ngClass]="validationStatus(formulario.controls.cocinero)" class="form-group form-inline">
+              <div [ngClass]="validationStatus(formulario.controls.cocinero)" class="form-group has-feedback">
                 <label for="form-cocinero">Cocinero </label>
-                <input id="form-cocinero" type="text" formControlName="cocinero" class="form-control" placeholder="Cocinero" tabindex="2">
+                <input id="form-cocinero" class="form-control" type="text" formControlName="cocinero" placeholder="Cocinero" tabindex="2">
+                <span *ngIf="formulario.controls.cocinero.dirty">
+                  <span *ngIf="formulario.controls.cocinero.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.cocinero.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
                 <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">Mínimo 3 letras</p>
               </div>
     
@@ -52,9 +60,13 @@
           </div> <!-- Sección superior -->
 
           <div id="desc-nueva-receta">
-              <div [ngClass]="validationStatus(formulario.controls.descripcion)" class="form-group">
+              <div [ngClass]="validationStatus(formulario.controls.descripcion)" class="form-group has-feedback">
                 <label for="form-desc">Descripción* </label>
                 <textarea id="form-desc" type="text" rows="4" formControlName="descripcion" class="form-control" placeholder="Descripción de la receta (mín. 100 caracteres)" tabindex="5"> </textarea>
+                <span *ngIf="formulario.controls.descripcion.dirty">
+                  <span *ngIf="formulario.controls.descripcion.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                  <span *ngIf="formulario.controls.descripcion.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </span>
                 <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">Mínimo 100 carácteres</p>
               </div>
           </div>

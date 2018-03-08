@@ -29,11 +29,6 @@ export class RecetarioComponent implements OnInit {
     console.log('RecetarioComponent ngOnInit()');
     this.listaRecetas = this.recetasService.getAll();
     this.listaMostrada = this.listaRecetas;
-    this.listaRecetas.forEach( recetaIt => {
-      if (recetaIt.isGlutenFree) {
-        this.recetasSinGluten.push(recetaIt);
-      }
-    });
   }
 
   /**
@@ -60,6 +55,15 @@ export class RecetarioComponent implements OnInit {
    */
   cambiarLista(filtroCeliacos) {
     console.log('RecetarioComponent cambiarLista(filtroCeliacos %b)', filtroCeliacos.checked);
+
+    // Actualizar la lista de recetas aptas para celíacos
+    this.recetasSinGluten = [];
+    this.listaRecetas.forEach( recetaIt => {
+      if (recetaIt.isGlutenFree) {
+        this.recetasSinGluten.push(recetaIt);
+      }
+    });
+    // Mostrar una u otra lista
     if (filtroCeliacos.checked) {
       this.listaMostrada = this.recetasSinGluten;
     } else {
