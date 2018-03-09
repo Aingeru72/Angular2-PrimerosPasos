@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "todos": [
+    {
+      "id": 1,
+      "userId": 72,
+      "title": "Reservar restaurante",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "userId": 72,
+      "title": "Aprender Angular2",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "userId": 72,
+      "title": "Comprar medicina",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "userId": 72,
+      "title": "Confirmar entrevista",
+      "completed": true
+    },
+    {
+      "userId": 72,
+      "title": "Comprar comida",
+      "completed": false,
+      "id": 5
+    }
+  ]
+}

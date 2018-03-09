@@ -38,11 +38,15 @@ export class RecetarioComponent implements OnInit {
    */
   select(event, elem) {
     console.log('RecetarioComponent setActive($event, elem)');
-    // console.log('$event.target: %o', event);
+    console.log('$event.target: %o', event);
     console.log('elem: %o', elem);
     this.receta = elem;
     if (this.temp != null) {
       this.temp.classList.remove('seleccionado');
+    }
+    // Verificar que el event sea el elemento <a.list-group-item,> , y no los hijos de este
+    while (!event.className.includes('list-group-item')) {
+      event = event.parentElement;
     }
     // Clase nativa de bootstrap 'Active'
     event.classList.add('seleccionado');

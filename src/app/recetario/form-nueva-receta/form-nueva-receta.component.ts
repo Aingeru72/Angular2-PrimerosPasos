@@ -77,7 +77,7 @@ export class FormNuevaRecetaComponent implements OnInit {
     console.log('FormNuevaRecetaComponent submit()');
 
     const nombre = this.formulario.value.nombre;
-    const cocinero = this.formulario.value.cocinero;
+    const cocinero = (this.formulario.value.cocinero) ? this.formulario.value.cocinero : 'Anónimo';
     const isGlutenFree = (this.formulario.value.isGlutenFree) ? true : false;
     // TODO: Verificar que es una dirección de imagen valida
     const foto = (this.formulario.value.foto) ? this.formulario.value.foto : '/assets/img/receta_default.jpg';

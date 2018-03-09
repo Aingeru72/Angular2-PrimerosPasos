@@ -1,0 +1,20 @@
+<div id="todosContainer">
+
+  <section id="taskList">
+    <h2>LISTA DE TAREAS</h2>
+    <div class="nueva-tarea">
+      <input id="input-tarea" class="form-inline" [(ngModel)]="nuevaTarea" autofocus type="text">
+      <span class="glyphicon glyphicon-plus-sign" (click)="addTarea()" aria-hidden="true"></span>
+      <p id="warn-tarea-vacia" class="text-warning">No puede añadir una tarea en blanco</p>
+      
+    </div>
+    <ul>
+      <li *ngFor="let todo of tareas">
+        <input type="checkbox" (click)="cambiarEstado(todo.id)" [checked]="(todo.completed)"> <span [ngStyle]="{ 'text-decoration': (todo.completed) ? 'line-through' : '' }">({{todo.id}}) {{todo.title}}</span>
+        <span class="glyphicon glyphicon-trash" (click)="eliminarTarea(todo.id)" aria-hidden="true"></span>
+      </li>
+    </ul>
+    
+  </section>
+
+</div>

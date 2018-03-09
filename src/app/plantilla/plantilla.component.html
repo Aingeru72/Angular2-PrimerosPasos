@@ -1,0 +1,20 @@
+<h2>Documentación:</h2>
+<ul>
+  <li>
+    <a href="https://angular.io/guide/structural-directives" target="_blank">Directivas estructurales</a>
+  </li>
+</ul>
+<br><br>  
+
+<div *ngIf="admin; then adminTemplate else userTemplate"></div>
+
+<ng-template #adminTemplate>
+  <span *ngIf="admin" class="label label-warning">Administrador</span>
+</ng-template>
+
+<ng-template #userTemplate>
+  <span *ngIf="!admin" class="label label-default">Usuario</span>
+</ng-template>
+
+<br><br>
+<button class="btn btn-default" (click)="switchUser()">Cambiar permisos</button>

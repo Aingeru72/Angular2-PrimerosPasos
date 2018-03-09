@@ -51,7 +51,7 @@
 
               <div [ngClass]="validationStatus(formulario.controls.puertas)" class="form-group has-feedback">
                 <label for="form-modelo">Puertas </label>
-                <input id="form-puertas" class="form-control" type="text" formControlName="puertas" placeholder="Puertas" tabindex="4">
+                <input id="form-puertas" class="form-control" type="number" min="0" formControlName="puertas" placeholder="Puertas" tabindex="4">
                 <span *ngIf="formulario.controls.modelo.dirty">
                   <span *ngIf="formulario.controls.puertas.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                   <span *ngIf="formulario.controls.puertas.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
@@ -60,7 +60,7 @@
 
               <div [ngClass]="validationStatus(formulario.controls.caballos)" class="form-group has-feedback">
                 <label for="form-modelo">Caballos</label>
-                <input id="form-caballos" class="form-control" type="text" formControlName="caballos" placeholder="Caballos (CV)" tabindex="5">
+                <input id="form-caballos" class="form-control" type="number" min="0" formControlName="caballos" placeholder="Caballos (CV)" tabindex="5">
                 <span *ngIf="formulario.controls.modelo.dirty">
                   <span *ngIf="formulario.controls.caballos.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                   <span *ngIf="formulario.controls.caballos.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
@@ -69,7 +69,7 @@
 
               <div [ngClass]="validationStatus(formulario.controls.consumo)" class="form-group has-feedback">
                 <label for="form-modelo">Consumo</label>
-                <input id="form-consumo" class="form-control" type="text" formControlName="consumo" placeholder="Consumo (L)" tabindex="5">
+                <input id="form-consumo" class="form-control" type="number" min="0" formControlName="consumo" placeholder="Consumo (L)" tabindex="5">
                 <span *ngIf="formulario.controls.modelo.dirty">
                   <span *ngIf="formulario.controls.consumo.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                   <span *ngIf="formulario.controls.consumo.invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>

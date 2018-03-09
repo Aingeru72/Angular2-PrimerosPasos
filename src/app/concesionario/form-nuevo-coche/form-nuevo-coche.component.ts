@@ -35,9 +35,9 @@ export class FormNuevoCocheComponent implements OnInit {
       modelo: ['', [Validators.required, Validators.minLength(3)] ],
       version: [ '', [] ],
       foto: ['', [] ],
-      puertas: ['', [] ],
-      caballos: ['', [] ],
-      consumo: [ '', [] ]
+      puertas: ['', [Validators.min(0)] ],
+      caballos: ['', [Validators.min(0)] ],
+      consumo: [ '', [Validators.min(0)] ]
     });
   }
 
