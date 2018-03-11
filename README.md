@@ -47,7 +47,7 @@ Existe herencia entre los siguientes componentes
 * **Tag 0.4** : Concesionario --> Estructura con varios componentes y herencia entre ellos.
 * **Tag 0.5** : Recetario --> Ejemplo con todos los componentes anteriores cargados mediante servicios de Angular en /providers en formato JSON ( *Añadida dependencia para jQuery* ).
 * **Tag 0.6** : Plantilla --> Ejemplos del componenete Template condicionados.
-* **Tag 0.7** : Tareas --> Lista de tareas cargadas desde un servidor creado con [JsonPlaceholder](https://jsonplaceholder.typicode.com/)
+* **Tag 0.7** : Tareas --> Lista de tareas cargadas desde un servidor creado con [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 
 ------
 
@@ -62,9 +62,9 @@ Existe herencia entre los siguientes componentes
 
 ### Como generar el proyecto Angular 2
 
-0. Instalar [Node.js](https://nodejs.org/es/) para poder instalar desde linea de comandos con `npm` (En caso de instalar y que la consola no reconozca el comando `npm` comprobar que se ha creado la variable de entorno y reiniciar el ordenador).
-1. Instalar Angular CLI (*Comand Line Interface*:  la herramienta de Angular para facilitar tareas), mediante `npm install -g @angular/cli`.
-2. Crear estructura de proyecto mediante `ng new NombreDelProyecto` situandonos en la carpeta donde quereremos crear el proyecto.
+1. Instalar [Node.js](https://nodejs.org/es/) para poder instalar desde linea de comandos con `npm` (En caso de instalar y que la consola no reconozca el comando `npm` comprobar que se ha creado la variable de entorno y reiniciar el ordenador).
+2. Instalar Angular CLI (*Comand Line Interface*:  la herramienta de Angular para facilitar tareas), mediante `npm install -g @angular/cli`.
+3. Crear estructura de proyecto mediante `ng new NombreDelProyecto` (o `ng new NombreDelProyecto --style=scss` para estilos en formato *SCSS*) situandonos en la carpeta donde quereremos crear el proyecto.
 
 Este proyecto ha sido generado mediante [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
