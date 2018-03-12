@@ -12,7 +12,7 @@ export class TodosComponent implements OnInit {
   // Declaración de variables
   tareas: Todo[];
   nuevaTarea: string;
-  contId: number;
+  // contId: number; CHANGE: json-server asigna id automáticamente
 
   constructor( public todosService: TodosService ) {
     console.log('TodosComponent constructor(todosService)');
@@ -23,18 +23,27 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     console.log('TodosComponent ngOnInit()');
+    this.cargarTareas();
+  } // END ngOnInit()
+
+  /**
+   * Cargar las tareas almacenadas en el servidor
+   */
+  cargarTareas() {
+    console.log('TodosComponent cargarTareas()');
+    // Limpiar lista de tareas
+    this.tareas = [];
     this.todosService.getTodos().subscribe(
       resultado => {
         // tslint:disable-next-line:no-console
         console.debug('peticion correcta %o', resultado);
-
         this.mapeo(resultado);
       },
       error => {
         console.warn('peticion incorrecta %o', error);
       }
     ); // END subscribe
-  } // END ngOnInit()
+  }
 
   /**
    * Mapea los datos en formato JSON a Todo, que provienen del Servicio 'todosService' Rest
@@ -61,12 +70,24 @@ export class TodosComponent implements OnInit {
       const tarea = new Todo(this.nuevaTarea);
 
       // Asignar el resto de atributos de Todo a la nuvea tarea
-      tarea.id = this.obtenerUltimoId() + 1;
+      /* tarea.id = this.obtenerUltimoId() + 1; CHANGES: dejar que json-server asigne el id */
       tarea.userId = 72;
       tarea.completed = false;
 
-      this.tareas.push(tarea);
+      /* this.tareas.push(tarea);
+      CHANGES: Ahora se modifican, guardan y eliminan en e servidor */
+      this.todosService.post(tarea).subscribe(
+        result => {
+          console.log('TodosComponent new %o', result);
+          this.cargarTareas();
+        },
+        error => {
+          alert(`No de pudo crear la nueva tarea ${tarea.title}`);
+          console.error(error);
+        }
+      );
       this.nuevaTarea = '';
+
 
       document.getElementById('warn-tarea-vacia').style.display = 'none';
       document.getElementById('input-tarea').focus();
@@ -98,8 +119,18 @@ export class TodosComponent implements OnInit {
    * @param id : id de la tarea
    */
   eliminarTarea(id) {
-    const indice = this.buscarTareaPorId(id);
-    this.tareas.splice(indice, 1);
+    // CHANGES: eliminar tarea en el servidor
+    /* const indice = this.buscarTareaPorId(id);
+    this.tareas.splice(indice, 1); */
+    this.todosService.delete(id).subscribe(
+      result => {
+        this.cargarTareas();
+      },
+      error => {
+        alert(`No de pudo eliminar la tarea`);
+        console.error(error);
+      }
+    );
   }
 
   /**

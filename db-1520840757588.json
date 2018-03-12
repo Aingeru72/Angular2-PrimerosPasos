@@ -46,18 +46,6 @@
       "title": "Comprar comida",
       "completed": false,
       "id": 5
-    },
-    {
-      "userId": 72,
-      "title": "Nueva tarea",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "userId": 72,
-      "title": "otra tarea",
-      "completed": false,
-      "id": 7
     }
   ]
 }
