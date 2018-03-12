@@ -88,7 +88,9 @@ export class FormNuevaRecetaComponent implements OnInit {
     this.formulario.value.ingredientes.map(element => {
       receta.addIngrediente( element.nombre );
     });
-    this.recetasService.add(receta);
+    // Guardar nueva receta en server
+    this.recetasService.post(receta);
+    // TODO: volver a pintar las recetas por pantalla
 
     // resetar inputs
     /* this.formulario.reset(); */

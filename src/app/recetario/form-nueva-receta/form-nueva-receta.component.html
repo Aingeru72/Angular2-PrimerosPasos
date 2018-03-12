@@ -77,7 +77,7 @@
             <div formArrayName="ingredientes">                                      
               <div *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                                       
                   <div [formGroupName]="i" [ngClass]="validationStatus(ingrediente)" class="input-group has-feedback">
-                    <input formControlName="nombre" class="ingrediente-input form-control" type="text" placeholder="Nuevo Ingrediente" tabindex={{i+6}}>                        
+                    <input formControlName="nombre" class="ingrediente-input form-control" type="text" placeholder="Nuevo Ingrediente {{i+1}}" tabindex={{i+6}}>                        
                     <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)" title="eliminar ingrediente"></span>
                     <span *ngIf="ingrediente.dirty">
                       <span *ngIf="ingrediente.valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>

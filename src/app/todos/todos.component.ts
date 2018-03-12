@@ -24,7 +24,7 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
     console.log('TodosComponent ngOnInit()');
     this.cargarTareas();
-  } // END ngOnInit()
+  }
 
   /**
    * Cargar las tareas almacenadas en el servidor
