@@ -3,11 +3,11 @@ import { Receta } from '../model/receta';
 // import { MOCK_RECETA } from './mock.recetas';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { GLOBAL } from '../global';
 
 /* Servidor json-server
 *  @see: https://github.com/typicode/json-server
 */
-const END_POINT = 'http://localhost:3000';
 
 @Injectable()
 export class RecetasService {
@@ -52,7 +52,7 @@ export class RecetasService {
   } */
 
   getAll(): Observable<any> {
-    const url = END_POINT + '/recetas';
+    const url = GLOBAL.END_POINT + '/recetas';
     console.log(`RecetasService getAll() from ${url}`);
 
     return this.http.get(url);
@@ -74,7 +74,7 @@ export class RecetasService {
    * @param receta : nueva receta a añadir
    */
   post(receta: Receta): Observable<any> {
-    const url = END_POINT + '/recetas';
+    const url = GLOBAL.END_POINT + '/recetas';
     console.log(`RecetasService post ${url}`);
 
     const body = receta; /* {
@@ -91,5 +91,17 @@ export class RecetasService {
     };
 
     return this.http.post( url, body, httpOptions );
+  }
+
+  patch(idReceta: number, likes: number): Observable<any> {
+    const url = GLOBAL.END_POINT + '/recetas/' + idReceta;
+    console.log(`RecetasService patch ${url}`);
+
+    const body = {'likes': likes};
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    return this.http.patch( url, body, httpOptions );
   }
 }

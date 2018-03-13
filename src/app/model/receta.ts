@@ -2,6 +2,7 @@
 export class Receta {
 
     // atributos
+    id: number;
     nombre: string;
     descripcion: string;
     foto: string;
@@ -17,8 +18,8 @@ export class Receta {
         likes: number = 0,
         isGlutenFree: boolean = false,
         cocinero: string = 'Anónimo', // valor por defecto, si se crea sin este atributo o es 'undefined'
+        id: number = -1
     ) {
-
         console.log('Receta constructor');
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -26,6 +27,7 @@ export class Receta {
         this.likes = likes;
         this.isGlutenFree = isGlutenFree;
         this.cocinero = cocinero;
+        this.id = id;
         this.ingredientes = [];
     }
 

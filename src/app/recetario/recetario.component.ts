@@ -62,7 +62,8 @@ export class RecetarioComponent implements OnInit {
                           element.foto,
                           element.likes,
                           element.isGlutenFree,
-                          element.cocinero
+                          element.cocinero,
+                          element.id
                         );
       receta.ingredientes = element.ingredientes;
 
