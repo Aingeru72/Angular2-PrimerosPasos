@@ -18,8 +18,11 @@
       </div>
       <div class="panel-body list-group">
         <a *ngFor='let receta of listaMostrada | filterRecetas : searchText' class="list-group-item" (click)="select($event.target, receta)">
-            <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
-            <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
+          <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
+          <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten" [title]="(receta.isGlutenFree) ? 'No contiene gluten' : 'Contiene glunten' ">
+          <button class="btn btn-danger btn-circle" aria-hidden="true">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
         </a>
       </div>
     </div><!-- END #listaRecetas -->
