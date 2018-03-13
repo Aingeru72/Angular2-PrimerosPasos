@@ -18,7 +18,7 @@ export class TodosService {
 
   getTodos(): Observable<any> {
     const url = END_POINT + '/todos';
-    console.log(`TodosService getProductos() from ${url}`);
+    console.log(`TodosService getTodos() from ${url}`);
 
     return this.http.get(url);
   }

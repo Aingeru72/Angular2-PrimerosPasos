@@ -41,7 +41,7 @@ export class RecetarioComponent implements OnInit {
     this.listaMostrada = this.listaRecetas;
   }
 
-/**
+  /**
    * Mapea los datos en formato JSON, que provienen del Servicio 'recetasService' Rest
    * @param result resultado de la petición (request)
    */
@@ -57,6 +57,7 @@ export class RecetarioComponent implements OnInit {
                           element.isGlutenFree,
                           element.cocinero
                         );
+      receta.ingredientes = element.ingredientes;
 
       // Rellenar la variable con la nueva tarea
       this.listaRecetas.push(receta);
