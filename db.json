@@ -169,6 +169,23 @@
         "tomate"
       ],
       "id": 7
+    },
+    {
+      "nombre": "Hamburguesa",
+      "descripcion": "Una hamburguesa es un alimento en forma de bocadillo de carne picada aglutinada en forma de filete, cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse.",
+      "foto": "https://www.mojegotowanie.pl/media/cache/gallery_view/uploads/media/default/0001/06/24d6da4a5082de0bc64c5ef0af88b8e14350bb7e.jpeg",
+      "likes": 0,
+      "isGlutenFree": false,
+      "cocinero": "D.Trump",
+      "ingredientes": [
+        "Pan",
+        "Hamburguesa",
+        "Bacon",
+        "Queso",
+        "Lechuga",
+        "Tomate"
+      ],
+      "id": 8
     }
   ]
 }

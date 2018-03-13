@@ -15,11 +15,14 @@ export class FormNuevaRecetaComponent implements OnInit {
   formulario: FormGroup;
   ingredientes: FormArray;
 
+  nuevaReceta: Receta;
+
   constructor( private fb: FormBuilder, public recetasService: RecetasService) {
     // Se puede acceder al Servicio 'RecetasService' con this.recetasService
     console.log('FormNuevaRecetaComponent constructor()');
     this.crearFormulario();
     this.ingredientes = this.formulario.get('ingredientes') as FormArray;
+    this.nuevaReceta = null;
   }
 
   ngOnInit() {
@@ -89,7 +92,10 @@ export class FormNuevaRecetaComponent implements OnInit {
       receta.addIngrediente( element.nombre );
     });
     // Guardar nueva receta en server
-    this.recetasService.post(receta);
+    this.recetasService.post(receta)
+      .subscribe(element => {
+        this.nuevaReceta = element;
+      });
     // TODO: volver a pintar las recetas por pantalla
 
     // resetar inputs

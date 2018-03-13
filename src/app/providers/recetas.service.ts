@@ -87,9 +87,7 @@ export class RecetasService {
         'ingredientes': receta.ingredientes
     }; */
     const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
     return this.http.post( url, body, httpOptions );
