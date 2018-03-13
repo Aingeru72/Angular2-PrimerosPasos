@@ -28,6 +28,14 @@ export class RecetarioComponent implements OnInit {
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit()');
     this.listaRecetas = [];
+    this.obtenerRecetas();
+    this.listaMostrada = this.listaRecetas;
+  }
+
+  /**
+   * Obtener lista de recetas del servidor
+   */
+  obtenerRecetas() {
     this.recetasService.getAll().subscribe(
       resultado => {
         // tslint:disable-next-line:no-console
@@ -38,7 +46,6 @@ export class RecetarioComponent implements OnInit {
         console.warn('peticion incorrecta %o', error);
       }
     );
-    this.listaMostrada = this.listaRecetas;
   }
 
   /**
@@ -107,6 +114,11 @@ export class RecetarioComponent implements OnInit {
     } else {
       this.listaMostrada = this.listaRecetas;
     }
+  }
+
+  actualizarRecetas(event) {
+    console.log('RecetarioComponent actualizarRecetas(receta): %o', event.nuevaReceta);
+    this.listaRecetas.unshift(event.nuevaReceta);
   }
 
 }
