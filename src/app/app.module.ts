@@ -28,6 +28,7 @@ import { FormNuevaRecetaComponent } from './recetario/form-nueva-receta/form-nue
 import { FormNuevoCocheComponent } from './concesionario/form-nuevo-coche/form-nuevo-coche.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { TodosComponent } from './todos/todos.component';
+import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { TodosComponent } from './todos/todos.component';
     FormNuevaRecetaComponent,
     FormNuevoCocheComponent,
     PlantillaComponent,
-    TodosComponent
+    TodosComponent,
+    FormularioBasicoComponent
   ],
   imports: [
     BrowserModule,

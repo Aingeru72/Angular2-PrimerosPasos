@@ -1,0 +1,22 @@
+<h1>Formulario básico</h1>
+
+<p>Valores: {{ formulario.value | json }}</p>
+<p>Estado: {{ formulario.status | json }}</p>
+
+<form [formGroup]="formulario" ngSubmit="enviar($event)" novalidate>
+
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input formControlName="nombre" class="form-control" placeholder="nombre" type="text">
+    <p class="text-danger" *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.dirty">*Error en nombre: requerido, mínimo 3 carácteres</p>
+  </div>
+
+  <br><br>
+  <input type="submit" class="btn btn-primary" value="Enviar" [disabled]="formulario.invalid">
+
+</form>
+
+<h2>Angular Double Binding</h2>
+{{txtDinamico}}
+<br>
+<input [(ngModel)]="txtDinamico" type="text">
