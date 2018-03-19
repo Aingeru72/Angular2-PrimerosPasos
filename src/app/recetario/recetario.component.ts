@@ -27,8 +27,50 @@ export class RecetarioComponent implements OnInit {
 
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit()');
-    this.listaRecetas = this.recetasService.getAll();
+    this.listaRecetas = [];
+    this.obtenerRecetas();
     this.listaMostrada = this.listaRecetas;
+  }
+
+  /**
+   * Obtener lista de recetas del servidor
+   */
+  obtenerRecetas() {
+    this.recetasService.getAll().subscribe(
+      resultado => {
+        // tslint:disable-next-line:no-console
+        console.debug('peticion correcta %o', resultado);
+        this.mapeo(resultado);
+      },
+      error => {
+        console.warn('peticion incorrecta %o', error);
+      }
+    );
+  }
+
+  /**
+   * Mapea los datos en formato JSON, que provienen del Servicio 'recetasService' Rest
+   * @param result resultado de la petición (request)
+   */
+  mapeo( result: any ) {
+    let receta: Receta;
+
+    // Rellenar recetas
+    result.forEach(element => {
+      receta = new Receta(element.nombre,
+                          element.descripcion,
+                          element.foto,
+                          element.likes,
+                          element.isGlutenFree,
+                          element.cocinero,
+                          element.id
+                        );
+      receta.ingredientes = element.ingredientes;
+
+      // Rellenar la variable con la nueva tarea
+      this.listaRecetas.push(receta);
+    });
+
   }
 
   /**
@@ -73,6 +115,11 @@ export class RecetarioComponent implements OnInit {
     } else {
       this.listaMostrada = this.listaRecetas;
     }
+  }
+
+  actualizarRecetas(event) {
+    console.log('RecetarioComponent actualizarRecetas(receta): %o', event.nuevaReceta);
+    this.listaRecetas.unshift(event.nuevaReceta);
   }
 
 }

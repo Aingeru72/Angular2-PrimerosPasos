@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RecetasService } from '../../providers/recetas.service';
 import { Receta } from '../../model/receta';
 import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
@@ -12,14 +12,19 @@ import * as $ from 'jquery';
 })
 export class FormNuevaRecetaComponent implements OnInit {
 
+  // Variables
   formulario: FormGroup;
   ingredientes: FormArray;
+  nuevaReceta: Receta;
+  // Usamos el decorador Output
+  @Output() RecargarRecetas = new EventEmitter();
 
   constructor( private fb: FormBuilder, public recetasService: RecetasService) {
     // Se puede acceder al Servicio 'RecetasService' con this.recetasService
     console.log('FormNuevaRecetaComponent constructor()');
     this.crearFormulario();
     this.ingredientes = this.formulario.get('ingredientes') as FormArray;
+    this.nuevaReceta = null;
   }
 
   ngOnInit() {
@@ -88,7 +93,14 @@ export class FormNuevaRecetaComponent implements OnInit {
     this.formulario.value.ingredientes.map(element => {
       receta.addIngrediente( element.nombre );
     });
-    this.recetasService.add(receta);
+    // Guardar nueva receta en server
+    this.recetasService.post(receta)
+      .subscribe(element => {
+        this.nuevaReceta = element;
+      });
+    // mostrar la nueva receta en la lista de recetas
+    this.RecargarRecetas.emit( {'nuevaReceta': receta} );
+
 
     // resetar inputs
     /* this.formulario.reset(); */
