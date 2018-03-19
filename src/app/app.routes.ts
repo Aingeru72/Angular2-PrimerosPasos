@@ -14,7 +14,8 @@ import { TodosComponent } from './todos/todos.component';
 
 // rutas
 const appRoutes: Routes = [
-  { path: '',               component: HomeComponent },
+  { path: '', redirectTo: '/recetario', pathMatch: 'full' },
+  /* { path: '',               component: HomeComponent }, */
   { path: 'receta',         component: RecetaComponent },
   { path: 'propiedades',    component: PropiedadesComponent },
   { path: 'usuario',        component: UsuarioComponent },
